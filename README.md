@@ -1,5 +1,3 @@
-# IOEentrance Laravel Website
-This project includes the files for the website of preparation of IOE entrance exam
 
 <p align="center"><img src="https://laravel.com/assets/img/components/logo-laravel.svg"></p>
 
@@ -10,6 +8,8 @@ This project includes the files for the website of preparation of IOE entrance e
 <a href="https://packagist.org/packages/laravel/framework"><img src="https://poser.pugx.org/laravel/framework/license.svg" alt="License"></a>
 </p>
 
+# IOEentrance Laravel Website
+This project includes the files for the website of preparation of IOE entrance exam.
 
 ## Installation
 Install Node,composer,XAMPP and then make a database in your phpmyadmin with name"IOEentrance".

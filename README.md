@@ -18,14 +18,6 @@ git clone https://github.com/bhimrazy/IOEentrance
 npm install
 php artisan serve
 ```
-
-## Usage
-
-```php
-composer global require laravel/installer
-laravel new blog "OR" composer create-project --prefer-dist laravel/laravel blog
-php artisan serve
-```
 ## Documentation
 Use this site to learn about the [Laravel documentation](https://laravel.com/docs/6.x)
 ## Contributing

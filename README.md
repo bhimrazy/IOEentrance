@@ -12,7 +12,7 @@
 This project includes the files for the website of preparation of IOE entrance exam.
 
 ## Installation
-Install Node,composer,XAMPP and then make a database in your phpmyadmin with name"IOEentrance".
+Install Node,composer,XAMPP and then make a database in your phpmyadmin with name"ioeentrance".
 ```bash
 git clone https://github.com/bhimrazy/IOEentrance
 npm install

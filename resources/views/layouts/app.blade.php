@@ -7,10 +7,11 @@
     <!-- CSRF Token -->
     <meta name="csrf-token" content="{{ csrf_token() }}">
 
-    <title>{{ config('app.name', 'Laravel') }}</title>
+    <title>{{ config('app.name', 'IOEentrance') }}</title>
 
     <!-- Scripts -->
     <script src="{{ asset('js/app.js') }}" defer></script>
+    <script src="https://kit.fontawesome.com/2fe76bb6c2.js" crossorigin="anonymous"></script>
 
     <!-- Fonts -->
     <link rel="dns-prefetch" href="//fonts.gstatic.com">
@@ -24,7 +25,7 @@
         <nav class="navbar navbar-expand-md navbar-light bg-white shadow-sm">
             <div class="container">
                 <a class="navbar-brand" href="{{ url('/') }}">
-                    {{ config('app.name', 'Laravel') }}
+                    {{ config('app.name', 'IOEentrance') }}
                 </a>
                 <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="{{ __('Toggle navigation') }}">
                     <span class="navbar-toggler-icon"></span>
@@ -33,7 +34,7 @@
                 <div class="collapse navbar-collapse" id="navbarSupportedContent">
                     <!-- Left Side Of Navbar -->
                     <ul class="navbar-nav mr-auto">
-
+                    
                     </ul>
 
                     <!-- Right Side Of Navbar -->
@@ -73,7 +74,35 @@
         </nav>
 
         <main class="py-4">
-            @yield('content')
+                <div class="container">
+                    <div class="row">
+                        @if(Auth::check())                        
+                        <div class="col-lg-4">
+                            <ul class="list-group">
+                                <li class="list-group-item">
+                                    <a href="{{route('home')}}"><span><i class="fas fa-home"></i></span>  Home</a>
+                                </li>
+                                <li class="list-group-item">
+                                    <a href="{{route('categories')}}"><span><i class="fas fa-list-ul"></i></span>  Categories</a>
+                                </li>
+                                <li class="list-group-item">
+                                    <a href="{{route('category.create')}}"><span><i class="fas fa-plus"></i></span>  Create new category</a>
+                                </li>
+                                <li class="list-group-item">
+                                <a href="{{route('question.create')}}"><span><i class="fas fa-plus"></i></span>  Create new question</a>
+                                </li>
+                            </ul>
+                        </div>
+                        <div class="col-lg-8">
+                            @yield('content')
+                        </div>
+                      @else
+                        <div class="col-lg-12">
+                            @yield('content')
+                        </div>
+                        @endif
+                    </div>
+                </div>
         </main>
     </div>
 </body>

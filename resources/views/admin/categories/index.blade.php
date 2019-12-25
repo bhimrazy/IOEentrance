@@ -18,21 +18,24 @@
                 </th>
             </thead>
             <tbody>
-                @foreach ($categories as $category)
-                    <tr>
-                        <td>
-                            {{$category->name}}
-                            
-                        </td>   
-                        <td>
-                           <a href="{{route('category.edit',$category->id) }}"><button class="btn btn-primary"><span><i class="fas fa-edit"></i></span> Edit</button></a> 
-                        </td>
-                        <td>
-                            <a href="{{route('category.delete',$category->id)}}"><button class="btn btn-danger"><span><i class="fas fa-trash-alt"></i></span> Delete</button></a>
-                        </td>
-                    </tr>
-                @endforeach
-                
+                @if ($categories->count()>0)
+                    @foreach ($categories as $category)
+                        <tr>
+                            <td>
+                                {{$category->name}}
+                                
+                            </td>   
+                            <td>
+                            <a href="{{route('category.edit',$category->id) }}"><button class="btn btn-primary"><span><i class="fas fa-edit"></i></span> Edit</button></a> 
+                            </td>
+                            <td>
+                                <a href="{{route('category.delete',$category->id)}}"><button class="btn btn-danger"><span><i class="fas fa-trash-alt"></i></span> Delete</button></a>
+                            </td>
+                        </tr>
+                    @endforeach
+                    @else      
+                        <tr> <h3>Category found</h3></tr>
+                @endif
             </tbody>
 
         </table>

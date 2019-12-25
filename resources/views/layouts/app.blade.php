@@ -11,6 +11,7 @@
 
     <!-- Scripts -->
     <script src="{{ asset('js/app.js') }}" defer></script>
+    <script src="{{ asset('js/toastr.min.js') }}"></script>
     <script src="https://kit.fontawesome.com/2fe76bb6c2.js" crossorigin="anonymous"></script>
 
     <!-- Fonts -->
@@ -19,6 +20,7 @@
 
     <!-- Styles -->
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
+    <link href="{{ asset('css/toastr.min.css') }}" rel="stylesheet">
 </head>
 <body>
     <div id="app">
@@ -89,6 +91,9 @@
                                     <a href="{{route('category.create')}}"><span><i class="fas fa-plus"></i></span>  Create new category</a>
                                 </li>
                                 <li class="list-group-item">
+                                    <a href="{{route('questions')}}"><span><i class="fas fa-list-ul"></i></span>  Questions</a>
+                                </li>
+                                <li class="list-group-item">
                                 <a href="{{route('question.create')}}"><span><i class="fas fa-plus"></i></span>  Create new question</a>
                                 </li>
                             </ul>
@@ -105,5 +110,12 @@
                 </div>
         </main>
     </div>
+    <script>
+    @if(Session::has('success'))
+
+        toastr.success('{{Session::get('success')}}')
+
+    @endif
+    </script>
 </body>
 </html>

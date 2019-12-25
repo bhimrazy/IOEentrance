@@ -2,7 +2,10 @@
 
 namespace App\Http\Controllers;
 
+use App\Category;
 use Illuminate\Http\Request;
+use App\Question;
+use Session;
 
 class QuestionsController extends Controller
 {
@@ -13,7 +16,7 @@ class QuestionsController extends Controller
      */
     public function index()
     {
-        //
+        return view('admin.questions.index')->with('categories',Category::all())->with('questions',Question::all());
     }
 
     /**
@@ -23,7 +26,7 @@ class QuestionsController extends Controller
      */
     public function create()
     {
-        return view('admin.questions.create');
+        return view('admin.questions.create')->with('categories',Category::all());
     }
 
     /**
@@ -37,10 +40,19 @@ class QuestionsController extends Controller
         $this->validate($request,[
             'title'=>'required',
             'option'=>'required',
-            'content'=>'required'
+            'content'=>'required',
+            'category_id'=>'required'
 
         ]);
-        dd($request->all());
+        $question = new Question;
+        $question->title = $request->title;
+        $question->option = $request->option;
+        $question->content = $request->content;
+        $question->category_id = $request->category_id;
+        $question->save();
+        Session::flash('success','You successfully created a question');
+        return redirect()->route('questions');
+       
     }
 
     /**
@@ -62,7 +74,8 @@ class QuestionsController extends Controller
      */
     public function edit($id)
     {
-        //
+        $question = Question::find($id);
+        return view('admin.questions.edit')->with('question',$question)->with('categories',Category::all());
     }
 
     /**
@@ -73,8 +86,15 @@ class QuestionsController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function update(Request $request, $id)
-    {
-        //
+    {      
+        $question = Question::find($id);
+        $question->title = $request->title;
+        $question->option = $request->option;
+        $question->content = $request->content;
+        $question->category_id = $request->category_id;
+        $question->save();
+        Session::flash('success','You successfully updated the question');
+        return redirect()->route('questions');
     }
 
     /**
@@ -84,7 +104,10 @@ class QuestionsController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function destroy($id)
-    {
-        //
+    {        
+        $question = Question::find($id);
+        $question->delete();
+        Session::flash('success','You successfully deleted the question');
+        return redirect()->route('questions');
     }
 }

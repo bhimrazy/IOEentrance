@@ -25,6 +25,12 @@ Route::group(['prefix'=>'admin','middleware'=>'auth'],function(){
         'uses' => 'HomeController@index',
         'as' => 'home'
     ]);
+     /* ---------Questionss------------ */
+     Route::get('/questions',[
+        'uses' => 'QuestionsController@index',
+        'as' => 'questions'
+    ]);
+    
     Route::get('/question/create',[
         'uses' => 'QuestionsController@create',
         'as' => 'question.create'
@@ -33,6 +39,18 @@ Route::group(['prefix'=>'admin','middleware'=>'auth'],function(){
     Route::post('/question/store',[
         'uses' => 'QuestionsController@store',
         'as' => 'question.store'
+    ]);
+    Route::get('/question/edit/{id}',[
+        'uses' => 'QuestionsController@edit',
+        'as' => 'question.edit'
+    ]);
+    Route::get('/question/delete/{id}',[
+        'uses' => 'QuestionsController@destroy',
+        'as' => 'question.delete'
+    ]);
+    Route::post('/question/update/{id}',[
+        'uses' => 'QuestionsController@update',
+        'as' => 'question.update'
     ]);
     
     /* ---------Categories------------ */

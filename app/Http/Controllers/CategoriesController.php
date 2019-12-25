@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use Session;
 use Illuminate\Http\Request;
 use App\Category;
 class CategoriesController extends Controller
@@ -41,7 +42,8 @@ class CategoriesController extends Controller
         $category= new Category;
         $category->name =$request->name;
         $category->save();
-        return redirect()->back();
+        Session::flash('success','You successfully created a category');
+        return redirect()->route('categories');
     }
 
     /**
@@ -78,6 +80,7 @@ class CategoriesController extends Controller
         $category = Category::find($id);
         $category->name =$request->name;
         $category->save();
+        Session::flash('success','You successfully updated the category');
         return redirect()->route('categories');
     }
 
@@ -91,6 +94,7 @@ class CategoriesController extends Controller
     {
         $category = Category::find($id);
         $category->delete();
+        Session::flash('success','You successfully deleted the category');
         return redirect()->route('categories');
     }
 }

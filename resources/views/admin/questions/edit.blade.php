@@ -1,19 +1,17 @@
 @extends('layouts.app')
 
 @section('content')
-    @include('admin.includes.errors')  
-            
+        @include('admin.includes.errors')  
     <div class="card">
-        <div class="card-header">  Create a new question</div>
+    <div class="card-header">Update question:{{ $question->id }}</div>
 
         <div class="card-body">
         
-        <form action="{{route('question.store')}}" method="post">
-                @csrf
-
+        <form action="{{route('question.update',$question->id)}}" method="post">
+                @csrf              
                 <div class="form-group">
                     <label for="title">Question Title</label>
-                    <input type="text" name="title" class="form-control">
+                    <input type="text" name="title" class="form-control" value="{{$question->title}}">
                 </div>
                 <div class="form-group">
                     <label for="category">Select a Category</label>                 
@@ -26,7 +24,7 @@
                 </div>
                 <div class="form-group">
                     <label for="option">Option 1</label>
-                    <input type="text" name="option" class="form-control">
+                    <input type="text" name="option" class="form-control" value="{{$question->option}}">
                     {{-- <label for="option">Option 2</label>
                     <input type="text" name="option[]" class="form-control">
                     <label for="option">Option 3</label>
@@ -36,11 +34,11 @@
                 </div>
                 <div class="form-group">
                     <label for="content">Content</label>
-                   <textarea name="content" id="content" cols="5" rows="5" class="form-control"></textarea>
-                </div>
+                <textarea name="content" id="content" cols="5" rows="5" class="form-control" value="{{$question->content}}"></textarea>
+                </div>                
                 <div class="form-group">
                     <div class="text-center">
-                        <button class="btn btn-success" type="submit"><span><i class="fas fa-save"></i></span> Store Question</button>
+                        <a href="{{route('question.update',$question->id)}}"><button class="btn btn-success" type="submit"><span><i class="fas fa-save"></i></span> Update Question</button></a>
                     </div>
                 </div>
 

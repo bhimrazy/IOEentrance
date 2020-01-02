@@ -2,9 +2,10 @@
 
 namespace App\Http\Controllers;
 
-use App\Category;
 use Illuminate\Http\Request;
 use App\Question;
+use App\Category;
+use App\Tag;
 use Session;
 
 class QuestionsController extends Controller
@@ -26,7 +27,7 @@ class QuestionsController extends Controller
      */
     public function create()
     {
-        return view('admin.questions.create')->with('categories',Category::all());
+        return view('admin.questions.create')->with('categories',Category::all())->with('tags',Tag::all());
     }
 
     /**
@@ -36,20 +37,24 @@ class QuestionsController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function store(Request $request)
-    {     
+    {    // dd($request);
         $this->validate($request,[
             'title'=>'required',
-            'option'=>'required',
+            'options.*.option'=>'required',
             'content'=>'required',
-            'category_id'=>'required'
+            'category_id'=>'required',
+            'tags'=>'required'
 
         ]);
+        //dd($request);
+        //Question::create($request);
         $question = new Question;
-        $question->title = $request->title;
-        $question->option = $request->option;
+        $question->title = $request->title;       
         $question->content = $request->content;
         $question->category_id = $request->category_id;
-        $question->save();
+        $question->save();        
+        $question->options()->createMany($request->options);
+        $question->tags()->attach($request->tags);
         Session::flash('success','You successfully created a question');
         return redirect()->route('questions');
        
@@ -75,7 +80,7 @@ class QuestionsController extends Controller
     public function edit($id)
     {
         $question = Question::find($id);
-        return view('admin.questions.edit')->with('question',$question)->with('categories',Category::all());
+        return view('admin.questions.edit')->with('question',$question)->with('categories',Category::all())->with('tags',Tag::all());
     }
 
     /**
@@ -88,11 +93,12 @@ class QuestionsController extends Controller
     public function update(Request $request, $id)
     {      
         $question = Question::find($id);
-        $question->title = $request->title;
-        $question->option = $request->option;
+        $question->title = $request->title;       
         $question->content = $request->content;
         $question->category_id = $request->category_id;
         $question->save();
+        $question->options()->sync($request->options);
+        $question->tags()->sync($request->tags);
         Session::flash('success','You successfully updated the question');
         return redirect()->route('questions');
     }

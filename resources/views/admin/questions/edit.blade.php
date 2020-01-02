@@ -17,14 +17,31 @@
                     <label for="category">Select a Category</label>                 
                     <select name="category_id" id="category" class="form-control">
                         @foreach ($categories as $category)
-                            <option value="{{$category->id}}">{{$category->name}}</option>
+                    <option value="{{$category->id}}" {{$category->id == $question->category->id ? 'selected' :''}}>{{$category->name}}</option>
                         @endforeach
                       
                     </select>
                 </div>
                 <div class="form-group">
-                    <label for="option">Option 1</label>
-                    <input type="text" name="option" class="form-control" value="{{$question->option}}">
+                    <label for="checkbox">Select Tags</label>    
+                   @foreach ($tags as $tag)
+                   <div class="checkbox">
+                         <label><input type="checkbox" name="tags[]" value="{{$tag->id}}"                            
+                            @foreach ($question->tags as $t)
+                                @if ($tag->id==$t->id)
+                                    checked
+                                @endif
+                            @endforeach                            
+                            >{{$tag->tag}}</label>
+                    </div>
+                   @endforeach
+                </div>
+                <div class="form-group">
+                    <label for="option">Options</label>
+                    @foreach ($question->options as $option)
+                    <input type="text" name="option[]" class="form-control" value="{{$option->option}}">  
+                    @endforeach
+                    
                     {{-- <label for="option">Option 2</label>
                     <input type="text" name="option[]" class="form-control">
                     <label for="option">Option 3</label>

@@ -23,7 +23,8 @@
     <link href="{{ asset('css/toastr.min.css') }}" rel="stylesheet">
 </head>
 <body>
-    <div id="app">
+    
+    <div id="app">        
         <nav class="navbar navbar-expand-md navbar-light bg-white shadow-sm">
             <div class="container">
                 <a class="navbar-brand" href="{{ url('/') }}">
@@ -54,7 +55,7 @@
                         @else
                             <li class="nav-item dropdown">
                                 <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
-                                    {{ Auth::user()->name }} <span class="caret"></span>
+                                    <i class="fas fa-user-circle"></i>   {{ Auth::user()->name }} <span class="caret"></span>
                                 </a>
 
                                 <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
@@ -85,17 +86,36 @@
                                     <a href="{{route('home')}}"><span><i class="fas fa-home"></i></span>  Home</a>
                                 </li>
                                 <li class="list-group-item">
-                                    <a href="{{route('categories')}}"><span><i class="fas fa-list-ul"></i></span>  Categories</a>
-                                </li>
-                                <li class="list-group-item">
                                     <a href="{{route('category.create')}}"><span><i class="fas fa-plus"></i></span>  Create new category</a>
+                                </li>                    
+                                <li class="list-group-item">
+                                    <a href="{{route('tag.create')}}"><span><i class="fas fa-plus"></i></span>  Create new Tag</a>
+                                 </li>       
+                                <li class="list-group-item">
+                                        <a href="#"><span><i class="fas fa-plus"></i></span>  Create new subject category</a>
+                                </li> 
+                                <li class="list-group-item">
+                                    <a href="#"><span><i class="fas fa-plus"></i></span>  Create new sub-model category</a>
+                                </li>  
+                                <li class="list-group-item">
+                                    <a href="#"><span><i class="fas fa-plus"></i></span>  Create new model-chap category</a>
+                                </li>                                                                             
+                                <li class="list-group-item">
+                                <a href="{{route('question.create')}}"><span><i class="fas fa-plus"></i></span>  Create new question</a>
                                 </li>
                                 <li class="list-group-item">
                                     <a href="{{route('questions')}}"><span><i class="fas fa-list-ul"></i></span>  Questions</a>
                                 </li>
                                 <li class="list-group-item">
-                                <a href="{{route('question.create')}}"><span><i class="fas fa-plus"></i></span>  Create new question</a>
-                                </li>
+                                    <a href="{{route('categories')}}"><span><i class="fas fa-list-ul"></i></span>  Categories</a>
+                                </li>  
+                                <li class="list-group-item">
+                                   <a href="{{route('tags')}}"><span><i class="fas fa-list-ul"></i></span>  Tags</a>
+                               </li>   
+                               <li class="list-group-item">
+                                <a href="#"><span><i class="fas fa-user-cog"></i></span>  Setting</a>
+                            </li>                             
+                               
                             </ul>
                         </div>
                         <div class="col-lg-8">

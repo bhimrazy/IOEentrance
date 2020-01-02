@@ -22,10 +22,24 @@
                             $i++
                             @endphp</span> {{$question->title}}</h5>
                 </div>
-                <ul class="list-group list-group-flush m-3">
-                    <li class="list-group-item ">{{$question->option}}</li>
+                <ul class="list-group list-group-flush m-2">
+                    <h5>Options</h5>
+                    @foreach ($question->options as $option)
+                    <li class="list-group-item ">{{$option->option}}</li>
+                    @endforeach
                     <li class="list-group-item ">{{$question->content}}</li>
+                    <div class="container pt-2">
+                        <h5>Tags</h5>
+                    @if ($question->tags->count()>0)
+                        @foreach ($question->tags as $tag)
+                       <div class="btn btn-secondary btn-sm"> {{$tag->tag}}&nbsp;   </div>             
+                        @endforeach   
+                    @else
+                     <h6>No Tag found.</h6>
+                    @endif               
+                    </div> 
                 </ul>
+               
                 <div class="card-body border-bottom">
                     <a href="{{route('question.edit',$question->id) }}"><button class="btn btn-primary"><span><i
                                     class="fas fa-edit"></i></span> Edit</button></a>

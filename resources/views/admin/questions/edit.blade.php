@@ -38,21 +38,11 @@
                 </div>
                 <div class="form-group">
                     <label for="option">Options</label>
-                    @foreach ($question->options as $option)
-                    <input type="text" name="option[]" class="form-control" value="{{$option->option}}">  
-                    @endforeach
+                    @foreach ($question->options as $k=>$option)                    
+                    <input id="{{$option->id}}" type="text" name="options[]" class="form-control m-2" value="{{$option->option}}">  
+                    @endforeach                   
                     
-                    {{-- <label for="option">Option 2</label>
-                    <input type="text" name="option[]" class="form-control">
-                    <label for="option">Option 3</label>
-                    <input type="text" name="option[]" class="form-control">
-                    <label for="option">Option 4</label>
-                    <input type="text" name="option[]" class="form-control"> --}}
-                </div>
-                <div class="form-group">
-                    <label for="content">Content</label>
-                <textarea name="content" id="content" cols="5" rows="5" class="form-control" value="{{$question->content}}"></textarea>
-                </div>                
+                </div>                             
                 <div class="form-group">
                     <div class="text-center">
                         <a href="{{route('question.update',$question->id)}}"><button class="btn btn-success" type="submit"><span><i class="fas fa-save"></i></span> Update Question</button></a>

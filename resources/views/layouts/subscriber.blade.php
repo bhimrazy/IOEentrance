@@ -84,42 +84,10 @@
                             <div class="col-lg-4">
                                 <ul class="list-group">
                                     <li class="list-group-item">
-                                        <a href="{{route('home')}}"><span><i class="fas fa-home"></i></span>  Home</a>
+                                        <a href="{{route('subscriber')}}"><span><i class="fas fa-home"></i></span>  Home</a>
                                     </li>
                                     <li class="list-group-item">
-                                        <div class="btn-group dropright">
-                                            <button type="button" class="btn btn-primary">
-                                            <i class="fas fa-cubes"></i> Create categories
-                                            </button>
-                                            <button type="button" class="btn btn-info dropdown-toggle dropdown-toggle-split" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                            <span class="sr-only">Toggle Dropright</span>
-                                            </button>
-                                            <div class="dropdown-menu">
-                                            <!-- Dropdown menu links -->
-                                               <a href="{{route('tag.create')}}" class="dropdown-item"><span><i class="fas fa-plus"></i></span>  Create new Tag</a>
-                                                <a href="{{route('category.create')}}" class="dropdown-item"><span><i class="fas fa-plus"></i></span>  Create new subject category</a>
-                                                <a href="#" class="dropdown-item"><span><i class="fas fa-plus"></i></span>  Create new sub-model category</a>
-                                                <a href="#" class="dropdown-item"><span><i class="fas fa-plus"></i></span>  Create new model-chap category</a>
-                                          </div>
-                                        </div>
-                                    </li>
-                                    <li class="list-group-item">
-                                        <a href="{{route('question.create')}}"><span><i class="fas fa-plus"></i></span>  Create new Question</a>
-                                    </li>
-                                    <li class="list-group-item">
-                                        <a href="{{route('questions')}}"><span><i class="fas fa-list-ul"></i></span>  Questions</a>
-                                    </li>
-                                    <li class="list-group-item">
-                                        <a href="{{route('categories')}}"><span><i class="fas fa-list-ul"></i></span>  Categories</a>
-                                    </li>  
-                                    <li class="list-group-item">
-                                    <a href="{{route('tags')}}"><span><i class="fas fa-list-ul"></i></span>  Tags</a>
-                                    </li> 
-                                    <li class="list-group-item">
-                                        <a href="{{route('users')}}"><span><i class="fas fa-users"></i></span>  Users</a>
-                                    </li>  
-                                    <li class="list-group-item">
-                                        <a href="{{route('user.create')}}"><span><i class="fas fa-user-plus"></i></span>  Create new User</a>
+                                        <a href="#"><span><i class="fas fa-address-card"></i></span> View Profile</a>
                                     </li>
                                     <li class="list-group-item">
                                         <a href="/admin/examsurvey"><span><i class="fas fa-laptop-code"></i></i></span>  Take Exam</a>

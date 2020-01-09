@@ -71,7 +71,13 @@
                 <div class="top-right links">
                     
                     @auth
+                        @if(Auth::user()->role->name=='Admin')
+                            <a href="{{route('home') }}">Home</a>
+                        @elseif(Auth::user()->role->name=='subAdmin')
                         <a href="{{route('home') }}">Home</a>
+                        @elseif(Auth::user()->role->name=='Subscriber')
+                        <a href="{{route('subscriber') }}">Home</a>
+                        @endif    
                     @else
                         <a href="{{ route('login') }}">Login</a>
 
@@ -86,16 +92,7 @@
                 <div class="title m-b-md">
                     IOEentrance
                 </div>
-
-                <div class="links">
-                    <a href="/">Docs</a>
-                    <a href="/">Laracasts</a>
-                    <a href="/">News</a>
-                    <a href="/">Blog</a>
-                    <a href="/">Nova</a>
-                    <a href="/">Forge</a>
-                    <a href="">GitHub</a>
-                </div>
+                <small>Created by Bhimraj Yadav and Team</small>
             </div>
         </div>
     </body>

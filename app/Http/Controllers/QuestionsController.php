@@ -37,11 +37,12 @@ class QuestionsController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function store(Request $request)
-    {    // dd($request);
+    {   //dd($request);
+        $options = $request->get('options');
+        if(count($options)==4){
         $this->validate($request,[
             'title'=>'required',
-            'options.*.option'=>'required',
-            'content'=>'required',
+            'options.*.option'=>'required',            
             'category_id'=>'required',
             'tags'=>'required'
 
@@ -49,15 +50,16 @@ class QuestionsController extends Controller
         //dd($request);
         //Question::create($request);
         $question = new Question;
-        $question->title = $request->title;       
-        $question->content = $request->content;
+        $question->title = $request->title;
         $question->category_id = $request->category_id;
         $question->save();        
         $question->options()->createMany($request->options);
         $question->tags()->attach($request->tags);
         Session::flash('success','You successfully created a question');
         return redirect()->route('questions');
-       
+        }
+        Session::flash('sucess','Only four options are allowed');
+        return redirect()->back()->withInput();    
     }
 
     /**
@@ -91,13 +93,23 @@ class QuestionsController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function update(Request $request, $id)
-    {      
+    {     
+        //dd($request->options);
         $question = Question::find($id);
-        $question->title = $request->title;       
-        $question->content = $request->content;
+        $options =$question->options->pluck('option','id')->toArray();
+        $question->title = $request->title;      
         $question->category_id = $request->category_id;
         $question->save();
-        $question->options()->sync($request->options);
+        $c=0;
+        foreach($options as $id=>$op){
+            if($op!=$request->options[$c]){
+                $opt = \App\Option::find($id);
+                $opt->option = $request->options[$c];
+                $opt->save();
+            }
+            $c++;
+        }
+        //$question->options()->createMany($request->options);
         $question->tags()->sync($request->tags);
         Session::flash('success','You successfully updated the question');
         return redirect()->route('questions');
@@ -112,6 +124,7 @@ class QuestionsController extends Controller
     public function destroy($id)
     {        
         $question = Question::find($id);
+        $question->options()->delete();
         $question->delete();
         Session::flash('success','You successfully deleted the question');
         return redirect()->route('questions');

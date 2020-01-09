@@ -19,12 +19,44 @@ Auth::routes();
 
 
 
-Route::group(['prefix'=>'admin','middleware'=>'auth'],function(){
+Route::group(['prefix'=>'admin','middleware'=>['auth','admin'||'subAdmin']],function(){
 
     Route::get('/home',[
         'uses' => 'HomeController@index',
         'as' => 'home'
     ]);
+      /* ---------Users------------ */
+      Route::get('/users',[
+        'uses' => 'UsersController@index',
+        'as' => 'users'
+    ]);
+    
+     Route::get('/user/create',[
+         'uses' => 'UsersController@create',
+         'as' => 'user.create'
+     ]);
+    
+    Route::post('/user/store',[
+        'uses' => 'UsersController@store',
+        'as' => 'user.store'
+    ]);
+    // Route::get('/user/edit/{id}',[
+    //     'uses' => 'UsersController@edit',
+    //     'as' => 'user.edit'
+    // ]);
+    Route::get('/user/delete/{id}',[
+        'uses' => 'UsersController@destroy',
+        'as' => 'user.delete'
+    ]);
+    // Route::post('/user/update/{id}',[
+    //     'uses' => 'UsersController@update',
+    //     'as' => 'user.update'
+    // ]);
+    Route::get('/user/changerole/{id}',[
+        'uses' => 'UsersController@changerole',
+        'as' => 'user.changerole'
+    ]);
+    
      /* ---------Questions------------ */
      Route::get('/questions',[
         'uses' => 'QuestionsController@index',
@@ -54,6 +86,7 @@ Route::group(['prefix'=>'admin','middleware'=>'auth'],function(){
     ]);
     
     /* ---------Categories------------ */
+     /* ---------Subject-Categories------------ */
     Route::get('/categories',[
         'uses' => 'CategoriesController@index',
         'as' => 'categories'
@@ -79,7 +112,58 @@ Route::group(['prefix'=>'admin','middleware'=>'auth'],function(){
         'uses' => 'CategoriesController@update',
         'as' => 'category.update'
     ]);
-
+    //  /* ---------Subject-Model-Categories------------ */
+    //  Route::get('/categories',[
+    //     'uses' => 'CategoriesController@index',
+    //     'as' => 'categories'
+    // ]);
+    // Route::get('/category/create',[
+    //     'uses' => 'CategoriesController@create',
+    //     'as' => 'category.create'
+    // ]);
+    // Route::post('/category/store',[
+    //     'uses' => 'CategoriesController@store',
+    //     'as' => 'category.store'
+    // ]);
+    
+    // Route::get('/category/edit/{id}',[
+    //     'uses' => 'CategoriesController@edit',
+    //     'as' => 'category.edit'
+    // ]);
+    // Route::get('/category/delete/{id}',[
+    //     'uses' => 'CategoriesController@destroy',
+    //     'as' => 'category.delete'
+    // ]);
+    // Route::post('/category/update/{id}',[
+    //     'uses' => 'CategoriesController@update',
+    //     'as' => 'category.update'
+    // ]);
+    //  /* ---------Subject-Model-Categories------------ */
+    //  Route::get('/categories',[
+    //     'uses' => 'CategoriesController@index',
+    //     'as' => 'categories'
+    // ]);
+    // Route::get('/category/create',[
+    //     'uses' => 'CategoriesController@create',
+    //     'as' => 'category.create'
+    // ]);
+    // Route::post('/category/store',[
+    //     'uses' => 'CategoriesController@store',
+    //     'as' => 'category.store'
+    // ]);
+    
+    // Route::get('/category/edit/{id}',[
+    //     'uses' => 'CategoriesController@edit',
+    //     'as' => 'category.edit'
+    // ]);
+    // Route::get('/category/delete/{id}',[
+    //     'uses' => 'CategoriesController@destroy',
+    //     'as' => 'category.delete'
+    // ]);
+    // Route::post('/category/update/{id}',[
+    //     'uses' => 'CategoriesController@update',
+    //     'as' => 'category.update'
+    // ]);
      /* ---------Tags------------ */
      Route::get('/tags',[
         'uses' => 'TagsController@index',
@@ -106,4 +190,19 @@ Route::group(['prefix'=>'admin','middleware'=>'auth'],function(){
         'uses' => 'TagsController@update',
         'as' => 'tag.update'
     ]);
+     /* ---------Exams------------ */
+     Route::get('/examsurvey',function () {
+        return view('examSurvey.index')->with('questions',App\Question::all());
+    });
+
+});
+ /* ---------SubscriberRoute------------ */
+
+Route::group(['prefix'=>'dashboard','middleware'=>['auth','subscriber']],function(){
+    Route::get('/subscriber',[
+        'uses' => 'SubscribersController@index',
+        'as' => 'subscriber'
+    ]);
+      /* ---------Users------------ */
+     
 });

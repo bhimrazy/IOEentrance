@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\Question;
 use App\Category;
 use App\Tag;
+use App\Correctanswer;
 use Session;
 
 class QuestionsController extends Controller
@@ -56,12 +57,31 @@ class QuestionsController extends Controller
         $question->options()->createMany($request->options);
         $question->tags()->attach($request->tags);
         Session::flash('success','You successfully created a question');
-        return redirect()->route('questions');
+        return view('admin.questions.selectanswer')->with('question',$question);
         }
         Session::flash('sucess','Only four options are allowed');
         return redirect()->back()->withInput();    
     }
-
+      /**
+     *  Store extra attributes to newly created resource in storage.
+     * @param  \Illuminate\Http\Request  $request
+     * @param  int  $id
+     * @return \Illuminate\Http\Response
+     */
+    public function answerstore(Request $request,$id){
+        $data=$this->validate($request,[
+            'response.option_id'=>'required'           
+        ]);
+       // dd($request['response.option_id']);
+       //dd($data['response']);
+        $question = Question::find($id);
+        $correctanswer= new Correctanswer;
+        $correctanswer->question_id=$question->id;        
+        $correctanswer->correctanswer = $request['response.option_id'];      
+        $correctanswer->save();   
+        return redirect()->route('questions');
+    }
+    
     /**
      * Display the specified resource.
      *
@@ -125,6 +145,7 @@ class QuestionsController extends Controller
     {        
         $question = Question::find($id);
         $question->options()->delete();
+        $question->correctanswer()->delete();
         $question->delete();
         Session::flash('success','You successfully deleted the question');
         return redirect()->route('questions');

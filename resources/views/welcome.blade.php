@@ -4,7 +4,7 @@
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
 
-        <title>Laravel</title>
+        <title>IOEentrance | Aim Higher</title>
          <!-- Bootstrap core CSS -->
         <link href="https://getbootstrap.com/docs/4.4/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
 
@@ -72,9 +72,9 @@
                     
                     @auth
                         @if(Auth::user()->role->name=='Admin')
-                            <a href="{{route('home') }}">Home</a>
+                            <a href="{{route('home') }}" class="btn btn-outline-info btn-sm mr-3">Dashboard</a>
                         @elseif(Auth::user()->role->name=='subAdmin')
-                        <a href="{{route('home') }}">Home</a>
+                        <a href="{{route('home') }}"class="btn btn-outline-info btn-sm mr-3">Dashboard</a>
                         @elseif(Auth::user()->role->name=='Subscriber')
                         <a href="{{route('subscriber') }}">Home</a>
                         @endif    
@@ -90,7 +90,8 @@
 
             <div class="content">
                 <div class="title m-b-md">
-                    IOEentrance
+                    {{-- IOEentrance --}}
+                    <img src="{{ asset('assets/IOEentrance.png') }}" class="img-fluid" width="50%" alt="IOEentrance | Aim Higher">
                 </div>
                 <small>Created by Bhimraj Yadav and Team</small>
             </div>

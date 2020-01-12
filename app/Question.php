@@ -18,4 +18,7 @@ class Question extends Model
     {
         return $this->hasMany('App\Option');
     }
+    public function correctanswer(){
+        return $this->hasOne('App\Correctanswer');
+    }
 }

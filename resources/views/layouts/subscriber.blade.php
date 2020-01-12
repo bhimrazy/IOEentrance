@@ -3,11 +3,10 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-
     <!-- CSRF Token -->
     <meta name="csrf-token" content="{{ csrf_token() }}">
 
-    <title>{{ config('app.name', 'IOEentrance') }}</title>
+    <title>{{ config('app.name', 'IOEentrance | Aim Higher') }}</title>
 
     <!-- Scripts -->
     <script src="{{ asset('js/app.js') }}" defer></script>
@@ -90,7 +89,7 @@
                                         <a href="#"><span><i class="fas fa-address-card"></i></span> View Profile</a>
                                     </li>
                                     <li class="list-group-item">
-                                        <a href="/admin/examsurvey"><span><i class="fas fa-laptop-code"></i></i></span>  Take Exam</a>
+                                        <a href="{{route('examsurvey.create')}}"><span><i class="fas fa-laptop-code"></i></i></span>  Take Exam</a>
                                         </li>                                  
                                     <li class="list-group-item">
                                         <a href="#"><span><i class="fas fa-user-cog"></i></span>  Setting</a>

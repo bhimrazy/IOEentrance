@@ -3,11 +3,10 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-
     <!-- CSRF Token -->
     <meta name="csrf-token" content="{{ csrf_token() }}">
 
-    <title>{{ config('app.name', 'IOEentrance') }}</title>
+    <title>{{ config('app.name', 'IOEentrance | Aim Higher') }}</title>
 
     <!-- Scripts -->
     <script src="{{ asset('js/app.js') }}" defer></script>
@@ -28,6 +27,8 @@
         <nav class="navbar navbar-expand-md navbar-light bg-white shadow-sm">
             <div class="container">
                 <a class="navbar-brand" href="{{ url('/') }}">
+                    {{-- <img src="{{ asset('assets/IOEentrance.png') }}" class="img-fluid" width="25%" alt="IOEentrance | Aim Higher">
+                 --}}
                     {{ config('app.name', 'IOEentrance') }}
                 </a>
                 <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="{{ __('Toggle navigation') }}">
@@ -55,7 +56,7 @@
                         @else
                             <li class="nav-item dropdown">
                                 <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
-                                    <i class="fas fa-user-circle"></i>   {{ Auth::user()->name }} <span class="caret"></span>
+                                    <i class="fas fa-user-circle"></i><span>{{ Auth::user()->name }} </span><span class="caret"></span>
                                 </a>
 
                                 <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
@@ -122,7 +123,7 @@
                                         <a href="{{route('user.create')}}"><span><i class="fas fa-user-plus"></i></span>  Create new User</a>
                                     </li>
                                     <li class="list-group-item">
-                                        <a href="/admin/examsurvey"><span><i class="fas fa-laptop-code"></i></i></span>  Take Exam</a>
+                                    <a href="{{route('examsurvey.create')}}"><span><i class="fas fa-laptop-code"></i></i></span>  Take Exam</a>
                                         </li>                                  
                                     <li class="list-group-item">
                                         <a href="#"><span><i class="fas fa-user-cog"></i></span>  Setting</a>

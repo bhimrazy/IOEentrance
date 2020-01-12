@@ -71,6 +71,10 @@ Route::group(['prefix'=>'admin','middleware'=>['auth','admin'||'subAdmin']],func
     Route::post('/question/store',[
         'uses' => 'QuestionsController@store',
         'as' => 'question.store'
+    ]);    
+    Route::post('/question/storeanswer/{id}',[
+        'uses' => 'QuestionsController@answerstore',
+        'as' => 'question.answerstore'
     ]);
     Route::get('/question/edit/{id}',[
         'uses' => 'QuestionsController@edit',
@@ -191,10 +195,18 @@ Route::group(['prefix'=>'admin','middleware'=>['auth','admin'||'subAdmin']],func
         'as' => 'tag.update'
     ]);
      /* ---------Exams------------ */
-     Route::get('/examsurvey',function () {
-        return view('examSurvey.index')->with('questions',App\Question::all());
-    });
-
+     Route::get('/examsurveys',[
+        'uses' => 'ExamSurveysController@index',
+        'as' => 'examsurvey.index'
+    ]);
+    Route::get('/examsurvey/create',[
+        'uses' => 'ExamSurveysController@create',
+        'as' => 'examsurvey.create'
+    ]);
+    Route::post('/examsurvey/store',[
+        'uses' => 'ExamSurveysController@store',
+        'as' => 'examsurvey.store'
+    ]);
 });
  /* ---------SubscriberRoute------------ */
 

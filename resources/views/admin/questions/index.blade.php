@@ -14,12 +14,12 @@
                     @foreach ($category->questions as $key =>$question)
                     <div class="card mt-4">
                         <div class="card-body">
-                            <h5 class="card-title"><span>{{$key+1}}</span> {{$question->title}}</h5>
+                            <h5 class="card-title"><span><strong>{{$key+1}} </strong>.</span> {{$question->title}}</h5>
                             <div class="container pt-2">    
                                 <h6>Options</h6>
-                                @foreach ($question->options as $option)
+                                @foreach ($question->options as $k => $option)
                                     <ul class="list-group list-group-flush m-2">
-                                        <li class="list-group-item border rounded">{{$option->option}}</li>
+                                        <li class="list-group-item border rounded">{{$k+1}} .{{$option->option}}</li>
                                     </ul>       
                                 @endforeach 
                                 <h6>Tags</h6>

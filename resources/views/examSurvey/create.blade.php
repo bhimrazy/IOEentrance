@@ -14,9 +14,9 @@
                 <div class="card-body pt-2">
                     <h6>Options</h6>
                     <ul class="list-group">
-                        @foreach ($question->options as $option)
+                        @foreach ($question->options as $k => $option)
                         <li class="list-group-item m-1 rounded">
-                        <label for="option{{$option->id}}">{{$k}}.  <input type="radio" name="responses[{{$key}}][option_id]" class="mr-2" 
+                        <label for="option{{$option->id}}">{{$k+1}}.  <input type="radio" name="responses[{{$key}}][option_id]" class="mr-2" 
                             id="option{{$option->id}}" value="{{$option->id}}">{{$option->option}} 
                         <input type="hidden" name="responses[{{$key}}][question_id]" value="{{$question->id}}">
                         </label>

@@ -1,0 +1,669 @@
+/* Google Font */
+@import url('https://fonts.googleapis.com/css?family=Acme|Lobster|Roboto|Roboto+Mono|Patua+One|Rubik|Sniglet');
+@import url('https://fonts.googleapis.com/css?family=Anton|Lexend+Deca&display=swap');
+
+* {
+    box-sizing: border-box;
+}
+
+header,
+section {
+    overflow-x: hidden;
+    transition: all 0.3s ease-in;
+}
+
+/* -----Variables------- */
+:root {
+    --Anton: 'Anton', sans-serif;
+    --Lexend: 'Lexend Deca', sans-serif;
+    --Roboto: "Roboto", sans-serif;
+    --Roboto-mono: "Roboto Mono", monospace;
+    --Snigle-font: "Sniglet", cursive;
+    --Rubik: "Rubik", cursive;
+    --Patua: "Patua One", cursive;
+    --lobster: "Lobster", cursive;
+    --light-black: #2e2c2caf;
+    --bggradient: linear-gradient(to bottom,
+            #08d9d6, #ff2e63);
+    --light-gray: rgba(255, 255, 255, 0.5);
+    --primary: #117a8b;
+    --secondary: #393e46;
+    --tertiary: #252a34;
+    --light-white: #eaeaea;
+    --pink: #be294e;
+    --text-gray: #3f4954;
+    --text-light: #535353da;
+}
+
+/* -----Header-Section------- */
+header a {
+    font-family: var(--Roboto);
+    font-size: 1.1em;
+    font-weight: 500;
+    color: var(--primary);
+}
+
+header {
+    background: var(--light-white);
+    /* background: var(--bggradient); */
+}
+
+header .nav-item:last-child {
+    padding-right: 5.5em;
+}
+
+header .nav-item {
+    padding: 0.8em;
+}
+
+header .navbar-brand {
+    padding-left: 5rem;
+}
+
+header .navbar-brand:hover {
+    color: var(--secondary);
+}
+
+nav {
+    padding: 0vmin 4vmin !important;
+}
+
+nav .navbar-toggler {
+    outline: none;
+    cursor: pointer;
+}
+
+header .nav-item {
+    display: block;
+    cursor: pointer;
+    padding: 3vmin 2vmin;
+    transition: all 0.2s ease;
+}
+
+
+header .nav-item:hover {
+    color: var(--secondary);
+    display: inline-block;
+    background: #d6d6d6;
+}
+
+header .nav-link:hover {
+    color: var(--secondary);
+}
+
+header .row .col-md-5 {
+    padding: 4.2vmin 1vmin;
+}
+
+header .row .col-md-7 {
+    padding: 20vmin 2vmin;
+    padding-bottom: 35vmin;
+    font-family: var(--Rubik);
+    color: var(--tertiary);
+}
+
+header .row .col-md-5 img {
+    opacity: 0.8;
+    width: 100%;
+}
+
+header .container .col-md-7 h6 {
+    padding: 1vmin;
+    letter-spacing: 4px;
+}
+
+header .container .col-md-7 h1 {
+    font-size: 6vmin;
+    font-weight: bold;
+    padding: 0.1em 0.1em;
+
+}
+
+header .container .col-md-7 .p {
+    padding: 1vmin 5vmin;
+
+}
+
+header .container .col-md-7 button {
+    border-radius: 50px;
+    color: var(--light-white);
+    background: var(--primary);
+}
+
+header .container .col-md-7 button:hover {
+    background: var(--secondary);
+}
+
+/* -----Section-1------- */
+.section-1 {
+    padding: 15vmin 0;
+
+}
+
+.section-1 .row .col-md-6 .side-img img {
+    opacity: 0.8;
+    width: 100%;
+    border-radius: 0.2em;
+    background-color: #f8f9fa;
+}
+
+.section-1 .row .col-md-6:last-child {
+    position: relative;
+}
+
+.section-1 .row .col-md-6 .panel {
+    position: absolute;
+    top: 8vmin;
+    left: -12vmin;
+    background: var(--light-gray);
+    border-radius: 3px;
+    text-align: left;
+    padding: 12vmin 10vmin 15vmin 10vmin;
+    box-shadow: 0px 25px 42px rgba(0, 0, 0, 0.1);
+    font-family: var(--Rubik);
+    z-index: 1;
+}
+
+.section-1 .row .col-md-6 .panel h1 {
+    font-weight: bold;
+    font-size: 2em;
+    padding: 0.4em 0;
+    color: var(--tertiary);
+}
+
+.section-1 .row .col-md-6 .panel p {
+    font-size: 0.9em;
+    color: rgba(0, 0, 0, 0.5);
+}
+
+/* -----Section-partners------- */
+section.partners {
+    background: var(--tertiary);
+    padding: 10vmin 0vmin;
+    font-family: var(--Lexend);
+}
+
+section.partners h1 {
+    font-size: 10vmin;
+    font-weight: bold;
+    color: var(--light-gray);
+}
+
+section.partners .row {
+    opacity: 0.7;
+}
+
+/* -----Section-2------- */
+.section-2 {
+    background: var(--light-white);
+    color: var(--tertiary);
+    padding: 0vmin 0vmin;
+}
+
+.cover {
+    width: 100%;
+    height: 50vmin;
+    background: url(../assets/section-2-cover.jpg) no-repeat;
+    background-position: 0rem -10rem;
+    background-size: 200%;
+    background-attachment: fixed;
+}
+
+.cover .content {
+    background: rgba(13, 37, 43, 0.671);
+    height: 100%;
+    width: 100%;
+    padding-top: 15vmin;
+
+}
+
+.cover .content>h1 {
+    font-family: var(--Roboto-mono);
+    font-size: 8vmin;
+    font-weight: bold;
+    color: var(--light-white);
+}
+
+.cover .content>p {
+    font-family: var(--Rubik);
+    font-size: 2.5vmin;
+    color: var(--light-white);
+
+}
+
+.numbers .rect {
+    font-family: var(--Roboto-mono);
+    position: relative;
+    z-index: 1;
+    background: white;
+    height: 15rem;
+    width: 15rem;
+    padding-top: 3.5vmin;
+    margin: 1rem;
+    border-radius: 0.5em;
+    transition: all 0.2s ease;
+    box-shadow: 1px 2px 20px 0px rgba(26, 101, 145, 0.363);
+}
+
+.numbers .rect:hover {
+    cursor: pointer;
+    box-shadow: 1px 2px 30px 5px rgba(26, 101, 145, 0.534);
+}
+
+.numbers {
+    margin-top: -15vmin;
+}
+
+.numbers .rect h1 {
+    padding: 2rem 1.5rem 1rem 1.5rem;
+    font-size: 4rem;
+    color: var(--primary);
+}
+
+.service>h1 {
+    padding-top: 10vmin;
+    font-family: var(--lobster);
+}
+
+.service>p {
+    color: var(--light-black);
+    font-size: 3vmin;
+    padding-bottom: 5vmin;
+}
+
+.service {
+    padding-bottom: 10vmin;
+}
+
+.service .card {
+    position: relative;
+    margin-bottom: 30px;
+    border-radius: 10px;
+    padding: 4vmin 6vmin;
+    width: 20rem;
+    margin: 3vmin;
+    cursor: pointer;
+    border: 1px solid rgba(30, 100, 105, 0.26);
+    box-shadow: 0 0.6rem 1rem rgba(26, 101, 145, 0.219);
+    transition: all 0.2s ease;
+}
+
+.service .card:hover {
+    box-shadow: 0 1rem 1.5rem rgba(26, 101, 145, 0.322) !important;
+    transform: translateY(-15px) !important;
+}
+
+.service .card .card-body .title i {
+    color: var(--primary);
+    padding: 1vmin;
+}
+
+.service .card .card-body .pricing h1 {
+    font-size: 5rem;
+    padding: 1vmin;
+
+}
+
+.service .card .card-body .pricing a {
+    border-radius: 50px;
+    background: var(--primary);
+    border: 1px solid rgba(248, 248, 248, 0.144);
+    transition: all 0.2s ease;
+    padding-top: 10vmin;
+}
+
+.service .card .card-body .pricing a:hover {
+    background: var(--pink);
+    box-shadow: 0 1rem 1.5rem rgba(21, 111, 114, 0.205) !important;
+}
+
+/* -----Section-3------- */
+
+.section-3 {
+    height: 75vmin;
+    background: var(--primary);
+    color: var(--light-white);
+    font-family: var(--Snigle-font);
+}
+
+.section-3 .row h1 {
+    padding-top: 15vmin;
+    color: whitesmoke;
+}
+
+.section-3 .row p {
+    padding: 0.4em;
+    padding-bottom: 2em;
+    font-size: 3vmin;
+    color: var(--light-gray);
+}
+
+.section-3 .desktop {
+    background: var(--light-white);
+    color: var(--primary);
+    width: 20rem;
+    border-radius: 50px;
+    padding: 3vmin 5vmin;
+    display: inline-block;
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+
+.section-3 .desktop:hover {
+    transform: translateY(-10px) !important;
+}
+
+.section-3 .desktop h3 {
+    font-size: 5vmin;
+}
+
+.section-3 .desktop p {
+    font-size: 3vmin;
+    color: var(--tertiary);
+    opacity: 0.9;
+}
+
+/* -----Section-4------- */
+.section-4 {
+    font-family: var(--lobster);
+}
+
+.section-4 .container h1 {
+    font-size: 7vmin;
+    padding-top: 15vmin;
+}
+
+.section-4 .team {
+    cursor: pointer;
+    padding: 10vmin 6vmin;
+}
+
+.section-4 .card {
+    width: 20rem;
+    margin-top: 2vmin;
+}
+
+.section-4 .card .card-text {
+    padding: 0.4em;
+}
+
+.section-4 .card .card-body>a {
+    font-size: 1.5em;
+}
+
+.section-4 .carousel-item {
+    padding-left: 1rem;
+}
+
+.border-radius {
+    border-radius: 340px;
+    width: 60%;
+}
+
+/* -----Footer-Section------- */
+footer {
+    font-family: var(--Roboto-mono);
+    background: var(--tertiary);
+    overflow-x: hidden;
+    padding: 15vmin 14vmin 10vmin 14vmin;
+}
+
+footer h5>span {
+    color: var(--pink);
+    font-weight: 700;
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+
+footer h5>span:hover {
+    color: var(--primary);
+}
+
+footer .move-up {
+    cursor: pointer;
+    color: var(--primary);
+    transition: all 0.2s ease;
+}
+
+footer .move-up:hover {
+    color: var(--light-white);
+}
+
+footer input {
+    border: none !important;
+    border-radius: 3px;
+}
+
+footer input::placeholder {
+    color: var(--light-gray);
+}
+
+footer .input-group .input-group-text {
+    background: var(--primary);
+    border: none;
+    margin-left: 1vmin;
+    cursor: pointer;
+    color: var(--light-white);
+    transition: all 0.2s ease;
+}
+
+footer .input-group .input-group-text:hover {
+    background: var(--light-gray);
+    color: var(--secondary);
+
+}
+
+footer .column i {
+    color: var(--pink);
+    padding-right: 0.5rem;
+    cursor: pointer;
+    font-size: 3.5vmin;
+    transition: all 0.2s ease;
+}
+
+footer .column i:hover {
+    color: var(--primary);
+}
+
+/*----------------- Sticky----------------- */
+.sticky {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    overflow: hidden;
+    left: 0px !important;
+    opacity: 0.97;
+    z-index: 100;
+    background: rgba(255, 255, 255, 0.989);
+    border-bottom: 1px solid white;
+    box-shadow: 0 1rem 1.5rem rgba(26, 101, 145, 0.247) !important;
+    transition: all 0.2s ease;
+}
+
+/**-----------------Mobile-----------------**/
+@media only screen and (max-width: 768px) {
+    nav {
+        padding: 3vmin 4vmin !important;
+    }
+
+    header .navbar-brand {
+        padding-left: 1rem;
+    }
+
+    header .row .col-md-5 {
+        padding-top: 12vmin;
+    }
+
+    header .row .col-md-7 {
+        padding: 15vmin 2vmin;
+        font-family: var(--Rubik);
+        color: var(--tertiary);
+    }
+
+    .section-1 .row .col-md-6 .panel {
+        position: initial;
+        width: initial;
+        height: initial;
+    }
+
+    .section-2 .cover {
+        background-position: -25vmin -10vmin;
+    }
+
+    .numbers {
+        margin-top: -5vmin;
+    }
+
+    .numbers .rect {
+        width: 18rem;
+        height: 12rem;
+    }
+
+    .numbers .rect h1 {
+        padding: 1rem 1.5rem 0.3rem 1.5rem;
+        font-size: 2rem;
+    }
+
+    .section-3 {
+        height: inherit;
+        padding: 10vmin !important;
+    }
+
+    .section-3 .row h1 {
+        padding: 6vmin 4vmin;
+    }
+
+    .section-3 .platform .col-md-6 {
+        text-align: center !important;
+    }
+
+    .section-3 .desktop i {
+        font-size: 8vmin;
+    }
+
+    .section-4 .carousel-item {
+        padding-left: 0.6rem;
+    }
+
+    .section-4 .team {
+        display: flex !important;
+        flex-direction: column !important;
+        padding: 0vmin 10vmin 10vmin 0vmin;
+        align-items: center;
+        align-content: center;
+
+    }
+
+    .section-4 .team .card {
+        align-content: center !important;
+    }
+
+    .section-4 .carousel-inner {
+        width: 20rem;
+    }
+
+    .section-4 .carousel-item {
+        padding-left: 0rem;
+    }
+
+    footer .row .col-md-2 {
+        font-size: medium;
+    }
+
+    footer .md {
+        padding-top: 3vmin;
+    }
+}
+
+/* screen size 425px */
+
+@media only screen and (max-width: 425px) {
+    .section-4 .card {
+        width: 18em;
+    }
+
+    header .row .col-md-5 img {
+        display: none;
+    }
+
+    .numbers .rect h1 {
+        padding: 2rem 1.5rem 0.3rem 1.5rem;
+        font-size: 2rem;
+    }
+
+    .numbers {
+        margin-top: -8vmin;
+    }
+
+    .section-3 .col-md-6 {
+        padding-bottom: 4vmin;
+    }
+
+    .section-4 .team {
+        padding: 0vmin 0vmin 10vmin 0vmin;
+        align-items: center;
+        align-content: center;
+
+    }
+
+    .section-4 .carousel-item {
+        padding-left: 3rem;
+    }
+
+    .section-4 .carousel-inner {
+        width: 21rem;
+    }
+
+    footer .col-md-5 {
+        padding-bottom: 10vmin;
+    }
+}
+
+/* screen size 375px */
+@media only screen and (max-width: 375px) {
+    .section-4 .card {
+        width: 18em;
+    }
+
+    header .row .col-md-5 img {
+        display: none;
+    }
+
+    .numbers .rect h1 {
+        padding: 2rem 1.5rem 0.3rem 1.5rem;
+        font-size: 2rem;
+    }
+
+
+    .section-3 .desktop {
+        width: 15rem;
+        border-radius: 50px;
+        padding: 1.5vmin 2.5vmin;
+    }
+
+    .section-3 .desktop i {
+        font-size: 6vmin;
+    }
+
+    .section-4 .carousel-item {
+        padding-left: 0.8rem;
+    }
+
+
+
+
+}
+
+/* screen size 320px */
+@media only screen and (max-width: 320px) {
+    .section-4 .carousel-inner {
+        margin-left: -4vmin;
+    }
+
+
+    .section-4 .carousel-item {
+        padding-left: 0rem;
+        margin-left: -0.4rem;
+    }
+
+}

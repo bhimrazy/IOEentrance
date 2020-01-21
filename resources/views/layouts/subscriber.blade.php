@@ -5,10 +5,11 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <!-- CSRF Token -->
     <meta name="csrf-token" content="{{ csrf_token() }}">
-
+    <title>IOEentrance |Practice and Aim Higher</title>
     <title>{{ config('app.name', 'IOEentrance | Aim Higher') }}</title>
 
     <!-- Scripts -->
+    <script src="{{ asset('js/appsw.js') }}"></script>
     <script src="{{ asset('js/app.js') }}" defer></script>
     <script src="{{ asset('js/toastr.min.js') }}"></script>
     <script src="https://kit.fontawesome.com/2fe76bb6c2.js" crossorigin="anonymous"></script>
@@ -16,10 +17,13 @@
     <!-- Fonts -->
     <link rel="dns-prefetch" href="//fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css?family=Nunito" rel="stylesheet">
-
+    <!-- Manifest-->
+    <link rel="manifest" href="{{asset('/manifest.json')}}">
     <!-- Styles -->
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
     <link href="{{ asset('css/toastr.min.css') }}" rel="stylesheet">
+    <meta name="theme-color" content="#317EFB"/>
+    <link rel="apple-touch-icon" href="{{asset('/assets/icons/icon-192.png')}}">
 </head>
 <body>
     

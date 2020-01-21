@@ -4,7 +4,7 @@
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
 
-        <title>IOEentrance | Aim Higher</title>
+        <title>IOEentrance |Practice and Aim Higher</title>
          <!-- Bootstrap core CSS -->
         <link href="https://getbootstrap.com/docs/4.4/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
 
@@ -12,6 +12,10 @@
         <link href="https://fonts.googleapis.com/css?family=Nunito:200,600" rel="stylesheet">
 
         <!-- Styles -->
+       <!-- Manifest-->
+    <link rel="manifest" href="{{asset('/manifest.json')}}">
+    <meta name="theme-color" content="#317EFB"/>
+    <link rel="apple-touch-icon" href="{{asset('/assets/icons/icon-192.png')}}">
         <style>
             html, body {
                 background-color: #fff;
@@ -96,5 +100,6 @@
                 <small>Created by Bhimraj Yadav and Team</small>
             </div>
         </div>
+        <script src="{{ asset('js/appsw.js') }}"></script>
     </body>
 </html>

@@ -11,14 +11,20 @@
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
+ /* ---------Home Page------------ */
+Route::group(['prefix'=>''],function(){
+    Route::get('/', function () {
+        return view('home.index');
+    });
+    Route::get('/blog', function () {
+        return view('home.blog');
+    });
+     
 });
 
+ /* ---------Authenticated------------ */
+
 Auth::routes();
-
-
-
 Route::group(['prefix'=>'admin','middleware'=>['auth','admin'||'subAdmin']],function(){
 
     Route::get('/home',[
@@ -26,7 +32,7 @@ Route::group(['prefix'=>'admin','middleware'=>['auth','admin'||'subAdmin']],func
         'as' => 'home'
     ]);
       /* ---------Users------------ */
-      Route::get('/users',[
+    Route::get('/users',[
         'uses' => 'UsersController@index',
         'as' => 'users'
     ]);

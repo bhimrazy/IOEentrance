@@ -1,11 +1,12 @@
-@extends('layouts.app')
+@extends('layouts.master')
 
 @section('content')
         @include('admin.includes.errors')  
-    <div class="card">
-    <div class="card-header">Update Tag:{{ $tag->name }}</div>
-
-        <div class="card-body">
+    <div class="box">
+        <div class="box-header with-border">
+            <h3 class="box-title">Update Tag:{{ $tag->name }}</h3>  
+        </div>
+       <div class="box-body">
         
         <form action="{{route('tag.update',$tag->id)}}" method="post">
                 @csrf              

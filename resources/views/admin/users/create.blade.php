@@ -1,10 +1,12 @@
-@extends('layouts.app')
+@extends('layouts.master')
 
 @section('content')
-      <div class="card">
-        <div class="card-header">  Create a new User</div>
+      <div class="box">
+        <div class="box-header with-border">
+            <h3 class="box-title">Create a new User</h3>  
+        </div>
 
-        <div class="card-body">
+        <div class="box-body">
         
         <form action="{{route('user.store')}}" method="post">
                 @csrf

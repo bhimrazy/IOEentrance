@@ -1,50 +1,59 @@
-@extends('layouts.app')
+@extends('layouts.master')
 
 @section('content')
-<div class="card">
-    <div class="card-header"> All Questions</div>
+<div class="box">
+    <div class="box-header with-border">
+        <h3 class="box-title"> All Questions</h3>  
+    </div>
 </div>
-
 @if ($questions->count()>0 && $categories->count()>0 )
     @foreach ($categories as $category)
         @if ($category->questions->count()>0)
-                <div class="card mt-4">
-                    <div class="card-header">{{$category->name}}</div> 
+                <div class="box bg-orange mt-4">
+                    <div class="box-header with-border">
+                        <h1 class="box-title">{{$category->name}}</h1>  
+                    </div> 
                 </div>      
                     @foreach ($category->questions as $key =>$question)
-                    <div class="card mt-4">
-                        <div class="card-body">
-                            <h5 class="card-title"><span><strong>{{$key+1}} </strong>.</span> {{$question->title}}</h5>
-                            <div class="container pt-2">    
-                                <h6>Options</h6>
-                                @foreach ($question->options as $k => $option)
-                                    <ul class="list-group list-group-flush m-2">
-                                        <li class="list-group-item border rounded">{{$k+1}} .{{$option->option}}</li>
-                                    </ul>       
+                    <div class="box">
+                        <div class="box-header with-border">
+                          <h4 class="box-title"><span><strong>{{$key+1}} </strong>.</span> {{$question->title}}</h4>
+                        </div>
+                        <div class="box-body with-border">
+                            <h6>Options</h6>
+                            <ul class="list-unstyled list-group">
+                                @foreach ($question->options as $k => $option)                            
+                                 <li class="list-group-item m-1 rounded">{{$k+1}} .{{$option->option}}  </li>                         
                                 @endforeach 
-                                <h6>Tags</h6>
-                                @if ($question->tags->count()>0)
-                                    @foreach ($question->tags as $tag)
-                                        <div class="btn btn-secondary btn-sm"> {{$tag->tag}}&nbsp;   </div>             
-                                    @endforeach   
-                                @else
-                                <h6>No Tag found.</h6>
-                                @endif               
-                            </div>                     
+                            </ul>                          
+                         </div>
+                        <div class="box-body">
+                            <h6>Tags</h6>
+                            @if ($question->tags->count()>0)
+                            @foreach ($question->tags as $tag)
+                                <div class="btn bg-purple btn-sm"> {{$tag->tag}}&nbsp;   </div>             
+                            @endforeach   
+                            @else
+                            <h6>No Tag found.</h6>
+                        @endif   
                         </div>
-                        <div class="card-footer border-bottom">
+                             
+                        <!-- /.box-body -->
+                        <div class="box-footer">
                             <a href="{{route('question.edit',$question->id) }}"><button class="btn btn-primary mr-3"><span><i
-                                            class="fas fa-edit"></i></span> Edit</button></a>
+                                class="fas fa-edit"></i></span> Edit</button></a>
                             <a href="{{route('question.delete',$question->id)}}"><button class="btn btn-danger"><span><i
-                                            class="fas fa-trash-alt"></i></span> Delete</button></a>
+                                class="fas fa-trash-alt"></i></span> Delete</button></a>
+            
                         </div>
-                    </div>    
+                        <!-- /.box-footer-->
+                      </div>                   
                     @endforeach
                
         @endif
     @endforeach                  
 @else
-<div class="card mt-4 p-4">
+<div class="box mt-4 p-4">
 <h4>No Questions Found.</h4> 
 </div>
 @endif               

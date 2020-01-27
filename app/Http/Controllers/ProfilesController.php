@@ -3,7 +3,10 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-
+use App\Profile;
+use App\User;
+use Session;
+use Intervention\Image\Facades\Image;
 class ProfilesController extends Controller
 {
     /**
@@ -11,9 +14,13 @@ class ProfilesController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function adminindex()
     {
-        //
+        return view('admin.profile.index');
+    }
+    public function subsindex()
+    {
+        return view('subscriber.profile.index');
     }
 
     /**
@@ -37,6 +44,45 @@ class ProfilesController extends Controller
         //
     }
 
+    public function subsstore(Request $request)
+    {
+        $data = $this->validate($request,[
+            'name'=>'required',
+            'email'=>'required|email',            
+            'avatar'=>'required|image|max:1024',
+            'college'=>'required',
+            'about'=>'required',
+            'address'=>'required'
+
+        ]);
+           
+       $user= auth()->user();
+       $user->name=$data['name'];
+       $user->email=$data['email'];   
+       $imagePath=request('avatar')->storeAs('profiles',$user->name.'-profile.png','public');
+       $image = Image::make(public_path("storage/{$imagePath}"))->fit(200,200);
+       $image->save();     
+      if($user->profile){
+        $profile = Profile::find($user->profile->id);
+        $profile=$user->profile();        
+        $profile->avatar=$imagePath;
+        $profile->college=$data['college'];
+        $profile->about=$data['about'];
+        $profile->address=$data['address'];        
+    }
+    else{
+        $profile= new Profile;
+        $profile->user_id=$user->id;
+        $profile->avatar=$imagePath;
+        $profile->college=$data['college'];
+        $profile->about=$data['about'];
+        $profile->address=$data['address'];    
+        $profile->save();
+    }       
+       $user->save();      
+        Session::flash('success','You successfully updated your profile.');
+        return redirect()->back();
+    }
     /**
      * Display the specified resource.
      *

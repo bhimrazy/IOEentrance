@@ -1,11 +1,12 @@
-@extends('layouts.app')
+@extends('layouts.master')
 
 @section('content')
         @include('admin.includes.errors')  
-    <div class="card">
-    <div class="card-header">Update question:{{ $question->id }}</div>
-
-        <div class="card-body">
+    <div class="box">
+        <div class="box-header with-border">
+            <h3 class="box-title"> Update question:{{ $question->id }}</h3>  
+        </div>
+           <div class="box-body">
         
         <form action="{{route('question.update',$question->id)}}" method="post">
                 @csrf              

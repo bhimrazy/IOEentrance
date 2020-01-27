@@ -7,7 +7,7 @@
      <meta name="csrf-token" content="{{ csrf_token() }}">
      <title>IOEentrance |Practice and Aim Higher</title>
      <title>{{ config('app.name', 'IOEentrance | Aim Higher') }}</title>
-    <link rel="icon" href="{{asset('/assets/logo-vertical.png')}}" type="image/png" sizes="32x32">
+    <link rel="icon" href="{{asset('/assets/vertical.png')}}" type="image/png" sizes="32x32">
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
         integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
@@ -68,15 +68,15 @@
                             @auth
                                 @if(Auth::user()->role->name=='Admin')
                                 <li class="nav-item">
-                                    <a class="nav-link btn btn-outline-info" href="{{route('home') }}">Dashboard</a>
+                                    <a class="nav-link btn btn-outline-info" href="{{route('admin-home') }}">Dashboard</a>
                                 </li>
                                 @elseif(Auth::user()->role->name=='subAdmin')
                                 <li class="nav-item">
-                                    <a class="nav-link btn btn-outline-info" href="{{route('home') }}">Dashboard</a>
+                                    <a class="nav-link btn btn-outline-info" href="{{route('admin-home') }}">Dashboard</a>
                                 </li>
                                 @elseif(Auth::user()->role->name=='Subscriber')
                                 <li class="nav-item">
-                                    <a class="nav-link btn btn-outline-info" href="{{route('subscriber') }}">Dashboard</a>
+                                    <a class="nav-link btn btn-outline-info" href="{{route('subscriber-home') }}">Dashboard</a>
                                 </li>
                                 @endif                                   
                             @else

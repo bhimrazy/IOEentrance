@@ -1,10 +1,11 @@
-@extends('layouts.app')
+@extends('layouts.master')
 
 @section('content')
-<div class="card">
-    <div class="card-header">  All Tags</div>
-
-    <div class="card-body">
+<div class="box">
+    <div class="box-header with-border">
+        <h3 class="box-title"> All Tags</h3>  
+    </div>
+    <div class="box-body">
         @if ($tags->count()>0)
             <table class="table table-hover table-bordered">        
                 <thead class="thead-light">

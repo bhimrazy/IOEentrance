@@ -17,10 +17,11 @@ class CreateProfilesTable extends Migration
             $table->bigIncrements('id');
             $table->integer('user_id')->unsigned();
             $table->string('avatar')->nullable();
-            $table->string('address')->nullable();
+            $table->string('college')->nullable();  
             $table->string('about')->nullable();    
-            $table->string('facebook')->nullable();   
+            $table->string('address')->nullable();  
             $table->timestamps();
+            
         });
     }
 

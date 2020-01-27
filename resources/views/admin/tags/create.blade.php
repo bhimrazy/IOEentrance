@@ -1,11 +1,12 @@
-@extends('layouts.app')
+@extends('layouts.master')
 
 @section('content')
     @include('admin.includes.errors')  
-    <div class="card">
-        <div class="card-header">  Create a new Tag</div>
-
-        <div class="card-body">
+    <div class="box">
+        <div class="box-header with-border">
+            <h3 class="box-title"> Create a new Tag</h3>  
+        </div>
+        <div class="box-body">
         
         <form action="{{route('tag.store')}}" method="post">
                 @csrf

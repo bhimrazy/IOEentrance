@@ -1,16 +1,19 @@
-@extends('layouts.app')
+@extends('layouts.master')
 
 @section('content')
-<div class="card">
-    <div class="card-header"> Select Answer for Question</div>
+<div class="box">
+    <div class="box-header with-border">
+        <h3 class="box-title">Select Answer for Question</h3>  
+    </div>
 </div>
 
 <form action="{{route('question.answerstore',$question->id)}}" method="post">
     @csrf
-    <div class="card mt-2">
-        <div class="card-header">{{$question->title}}</div>
-
-        <div class="card-body pt-2">
+    <div class="box mt-2">
+        <div class="box-header with-border">
+            <h3 class="box-title">{{$question->title}}</h3>  
+        </div>
+        <div class="box-body pt-2">
             <h6>Tags</h6>
                 @if ($question->tags->count()>0)
                     @foreach ($question->tags as $tag)
@@ -33,7 +36,7 @@
         </div>
     </div>   
     <div class="text-center p-2">
-        <button type="submit" class="btn btn-dark">Submit Your Correct Answer for this Question</button>
+        <button type="submit" class="btn bg-navy">Submit Your Correct Answer for this Question</button>
     </div>
     {{-- <div class="form-group p-2">
         <div class="text-center">

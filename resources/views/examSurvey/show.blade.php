@@ -1,10 +1,10 @@
-@extends('layouts.app')
-
+@extends('layouts.exam')
 @section('content')
-<div class="card">
-    <div class="card-header">RESULT</div>
-
-    <div class="card-body">       
+<div class="box">
+    <div class="box-header with-border">
+        <h3 class="box-title"> RESULT</h3>  
+    </div>
+    <div class="box-body">       
             <table class="table table-hover table-bordered">        
                 <thead class="thead-light">
                     <th>

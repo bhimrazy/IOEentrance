@@ -25,6 +25,6 @@ class HomeController extends Controller
     public function index()
     {   
 
-        return view('home')->with('users',User::all())->with('questions',Question::all());
+        return view('admin.index')->with('users',User::all())->with('questions',Question::all());
     }
 }

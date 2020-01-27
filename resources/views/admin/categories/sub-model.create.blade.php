@@ -1,11 +1,13 @@
-@extends('layouts.app')
+@extends('layouts.master')
 
 @section('content')
     @include('admin.includes.errors')  
-    <div class="card">
-        <div class="card-header">  Create a new Sub-model category</div>
+    <div class="box">
+        <div class="box-header with-border">
+            <h3 class="box-title"> Create a sub model category</h3>  
+          </div>
 
-        <div class="card-body">
+        <div class="box-body">
         
         <form action="{{route('category.sub-model.store')}}" method="post">
                 @csrf

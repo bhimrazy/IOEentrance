@@ -8,7 +8,18 @@ use App\Profile;
 use App\Role;
 use Session;
 class UsersController extends Controller
-{
+{   
+       /**
+    * Constructor.
+    *
+    * @return void
+    */
+    
+   public function __construct()
+   {
+       $this->middleware('auth');
+        $this->middleware('admin');
+   }
     /**
      * Display a listing of the resource.
      *
@@ -48,7 +59,7 @@ class UsersController extends Controller
         $user->email = $request->email;
         $user->password =bcrypt('password');
         $user->save();       
-        $profile= new Profile;
+        $profile= new App\Profile;
         $profile->user_id=$user->id;
         $profile->save();       
         Session::flash('success','User created successfully ');
@@ -98,7 +109,7 @@ class UsersController extends Controller
     public function destroy($id)
     {
         $user = User::find($id);
-       // $user->profile()->delete();
+        $user->profile()->delete();
         $user->delete();
         Session::flash('success','You successfully deleted the user');
         return redirect()->route('users');
@@ -109,10 +120,10 @@ class UsersController extends Controller
         //$subAdmin =  Role::where('name','subAdmin')->get('id');
         // dd($subAdmin);
         if($user->role->name=='Subscriber'){
-            $user->role_id= 5;
+            $user->role_id= 2;
         }
         else{
-            $user->role_id= 0;
+            $user->role_id= 1;
             }
         $user->save();
         Session::flash('success','You successfully changed the user role.');

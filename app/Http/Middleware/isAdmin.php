@@ -4,6 +4,7 @@ namespace App\Http\Middleware;
 
 use Closure;
 use Auth;
+use Session;
 class isAdmin
 {
     /**
@@ -16,10 +17,11 @@ class isAdmin
     public function handle($request, Closure $next)
     {
         if($user = Auth::user()){
-            if(!$user->role->name=='Admin'){
+            if($user->role->name=='Admin'){
             return $next($request); 
             }
         }
+        Session::flash('warning','You don\'t have permission to access the page ');
         return redirect()->back();
     }
 }

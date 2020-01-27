@@ -1,17 +1,27 @@
-@extends('layouts.app')
-
+@if(Auth::user()->role->name=='Admin'){
+    @extends('layouts.master')
+}
+@elseif(Auth::user()->role->name=='subAdmin'){
+    @extends('layouts.master')
+}
+@elseif(Auth::user()->role->name=='Subscriber'){
+    @extends('layouts.subscriber')
+}
+@endif
 @section('content')
-<div class="card">
-    <div class="card-header"> All Questions</div>
+<div class="box">
+    <div class="box-header with-border">
+        <h3 class="box-title"> All Questions</h3>  
+    </div>
 </div>
 <form action="{{route('examsurvey.store')}}" method="post">
     @csrf
     @if ($questions->count()>0) 
         @foreach ($questions as $key =>$question)
-            <div class="card mt-2">
-                <div class="card-header"><span><strong>{{$key+1}} </strong>.</span>{{$question->title}}</div>
+            <div class="box mt-2">
+                <div class="box-header"><span><strong>{{$key+1}} </strong>.</span>{{$question->title}}</div>
 
-                <div class="card-body pt-2">
+                <div class="box-body pt-2">
                     <h6>Options</h6>
                     <ul class="list-group">
                         @foreach ($question->options as $option)

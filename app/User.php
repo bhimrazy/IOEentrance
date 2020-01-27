@@ -42,5 +42,25 @@ class User extends Authenticatable
     }
     public function profile(){
         return $this->hasOne('App\Profile');
+    }    
+    public function imgUrl(){
+        if($this->profile){
+            $url= '/storage/' . $this->profile->avatar;
+        }
+        else{
+        $url='/storage/profiles/dummy-profile.png';
+        }
+        return asset($url);
+    }
+    public function userDetails($data){
+        if($this->profile && $this->profile->$data){
+           if($this->profile->$data){
+            return $this->profile->$data;
+           }else{
+            return 'Your '.ucfirst($data).' here.';}       
+        }
+        else{
+            return 'Your '.ucfirst($data).' here.';
+        }       
     }
 }

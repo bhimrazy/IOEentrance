@@ -619,6 +619,19 @@ footer .column i:hover {
     }
 }
 
+
+@media only screen and (max-width: 400px) {
+
+    .section-4 .carousel-item {
+        padding-left: 0rem;
+    }
+
+    .section-4 .carousel-inner {
+        margin-left: 4vmin;
+    }
+
+}
+
 /* screen size 375px */
 @media only screen and (max-width: 375px) {
     .section-4 .card {
@@ -645,8 +658,8 @@ footer .column i:hover {
         font-size: 6vmin;
     }
 
-    .section-4 .carousel-item {
-        padding-left: 0.8rem;
+    .section-4 .carousel-inner {
+        margin-left: 1.5vmin;
     }
 
 
@@ -654,16 +667,32 @@ footer .column i:hover {
 
 }
 
-/* screen size 320px */
-@media only screen and (max-width: 320px) {
+/* screen size 350px */
+@media only screen and (max-width: 350px) {
+    .section-4 .carousel-inner {
+        margin-left: -2vmin;
+    }
+
+}
+
+
+@media only screen and (max-width: 340px) {
     .section-4 .carousel-inner {
         margin-left: -4vmin;
     }
 
+}
 
-    .section-4 .carousel-item {
-        padding-left: 0rem;
-        margin-left: -0.4rem;
+@media only screen and (max-width: 330px) {
+    .section-4 .carousel-inner {
+        margin-left: -5vmin;
+    }
+
+}
+
+@media only screen and (max-width: 320px) {
+    .section-4 .carousel-inner {
+        margin-left: -6.5vmin;
     }
 
 }

@@ -34,37 +34,34 @@ class ExamSurveysController extends Controller
      */
     public function store(Request $request)
     {    # code...
-      $allresponses = $request->responses ;
+      $allresponses = $request->responses ;  
+    //   dd($allresponses);
       $rightAnswer =0;
     //   $rightQuestions= new Array();
       $wrongAnswer=0; 
     //   $wrongQuestions=new Array();
     //    dd($request->all());
-   foreach ($allresponses as $key => $response) {   
-       //dd($response);
-      // echo $response['question_id'];
-      // echo "\n\t\t\t";
-      // echo $response['option_id'];
-       $question = \App\Question::findOrFail($response['question_id']);
-       $ans =$question->correctanswer->correctanswer;
-       if( $ans == $response['option_id']){
-        // $rightQuestions[$rightAnswer]= $response['question_id'];  
-        $rightAnswer++;
-       }
-       else{
-        // $wrongQuestions[$wrongAnswer]= $response['question_id'];
-        $wrongAnswer++; 
-       }
-    //    foreach ($rightQuestions as $key =>$rightQuestion) { echo  $rightQuestion; }
-    //    foreach ($wrongQuestions as $key =>$wrongQuestion) { echo  $wrongQuestion;}
-      //echo  $rightAnswer;
-      //echo "\n\t\t";
-      //echo  $wrongAnswer; 
-      return view('examSurvey.show')->with('rightAnswer',$rightAnswer)->with('wrongAnswer',$wrongAnswer);
-      
-      
-   }
-    
+    foreach ($allresponses as $key => $response) {   
+        if(count($response)<2){continue;}
+        $question = \App\Question::findOrFail($response['question_id']);
+        $ans =$question->correctanswer->correctanswer;
+        if( $ans == $response['option_id']){
+            // $rightQuestions[$rightAnswer]= $response['question_id'];  
+            $rightAnswer++;
+        }
+        if( $ans !== $response['option_id']){
+            // $wrongQuestions[$wrongAnswer]= $response['question_id'];
+            $wrongAnswer++; 
+        }
+        //    foreach ($rightQuestions as $key =>$rightQuestion) { echo  $rightQuestion; }
+        //    foreach ($wrongQuestions as $key =>$wrongQuestion) { echo  $wrongQuestion;}
+        //echo  $rightAnswer;
+        //echo "\n\t\t";
+        //echo  $wrongAnswer;             
+    }
+        return view('examSurvey.show')->with('rightAnswer',$rightAnswer)->with('wrongAnswer',$wrongAnswer);
+            
+            
     }
 
     /**

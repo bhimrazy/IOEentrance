@@ -3,7 +3,7 @@
 namespace App\Http\Middleware;
 use Auth;
 use Closure;
-
+use Session;
 class issubscriber
 {
     /**
@@ -20,6 +20,7 @@ class issubscriber
             return $next($request); 
             }
         }
+        Session::flash('warning','You don\'t have permission to access the page ');
         return redirect()->back();
     }
 }

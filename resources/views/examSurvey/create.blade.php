@@ -11,7 +11,7 @@
         @foreach ($questions as $key =>$question)
             <div class="box mt-2">
                 <div class="box-header with-border">
-                    <h3 class="box-title"><span><strong>{{$key+1}} </strong>.</span>{{$question->title}}</h3>  
+                    <h3 class="box-title"><span><strong>{{$key+1}}</strong>.</span><span>{!!$question->title!!}</span></h3>  
                 </div>
                 <div class="box-body pt-2">
                     <h6>Options</h6>

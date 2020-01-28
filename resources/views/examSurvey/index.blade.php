@@ -19,7 +19,7 @@
     @if ($questions->count()>0) 
         @foreach ($questions as $key =>$question)
             <div class="box mt-2">
-                <div class="box-header"><span><strong>{{$key+1}} </strong>.</span>{{$question->title}}</div>
+                <div class="box-header"><span><strong>{{$key+1}} </strong>.</span>{!!$question->title!!}</div>
 
                 <div class="box-body pt-2">
                     <h6>Options</h6>

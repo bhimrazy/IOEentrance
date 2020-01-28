@@ -12,7 +12,7 @@
                 @csrf              
                 <div class="form-group">
                     <label for="title">Question Title</label>
-                    <input type="text" name="title" class="form-control" value="{{$question->title}}">
+                    <textarea name="title" id="article-ckeditor" cols="30" rows="5" class="form-control">{{$question->title}}</textarea>
                 </div>
                 <div class="form-group">
                     <label for="category">Select a Category</label>                 

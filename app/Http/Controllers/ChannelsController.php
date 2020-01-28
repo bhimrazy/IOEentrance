@@ -1,7 +1,7 @@
 <?php
 
 namespace App\Http\Controllers;
-
+use App\Channel;
 use Illuminate\Http\Request;
 
 class ChannelsController extends Controller
@@ -13,7 +13,7 @@ class ChannelsController extends Controller
      */
     public function index()
     {
-        //
+        return view('channels.index')->with('channels',Channel::all());
     }
 
     /**
@@ -23,7 +23,7 @@ class ChannelsController extends Controller
      */
     public function create()
     {
-        //
+        return view('channels.create');
     }
 
     /**
@@ -34,7 +34,16 @@ class ChannelsController extends Controller
      */
     public function store(Request $request)
     {
-        //
+       $this->validate($request,[
+           'name'=>'required|unique:channels'
+       ]);
+
+       Channel::create([
+           'name' => $request->name,
+           'slug' => str_slug($request->name)
+       ]);
+       
+        return redirect()->route('channels.index')->with('success','Channel created successfully');
     }
 
     /**
@@ -43,20 +52,23 @@ class ChannelsController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
-    {
-        //
+    public function show($slug)
+    {    
+        $channel=Channel::where('slug',$slug)->first();
+        $discussions= $channel->discussions()->orderBy('created_at','desc')->paginate(3);
+      
+        return view('discussions.index')->with('discussions',$discussions);
     }
-
+   
     /**
      * Show the form for editing the specified resource.
      *
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
+    public function edit(Channel $channel)
     {
-        //
+        return view('channels.edit')->with('channel',$channel);
     }
 
     /**
@@ -66,9 +78,13 @@ class ChannelsController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
-    {
-        //
+    public function update(Request $request, Channel $channel)
+    {    $this->validate($request,[
+        'name'=>'required|unique:channels'
+         ]);     
+       $channel->name=$request->name;
+       $channel->save();
+       return redirect()->route('channels.index')->with('success','Channel updated successfully');
     }
 
     /**
@@ -77,8 +93,8 @@ class ChannelsController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
-    {
-        //
+    public function destroy(Channel $channel)
+    {   $channel->delete();      
+        return redirect()->back()->with('success','Channel deleted successfully');
     }
 }

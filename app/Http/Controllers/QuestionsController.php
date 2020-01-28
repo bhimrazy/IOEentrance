@@ -38,7 +38,7 @@ class QuestionsController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function store(Request $request)
-    {   //dd($request);
+   {    // dd($request);
         $options = $request->get('options');
         if(count($options)==4){
         $this->validate($request,[

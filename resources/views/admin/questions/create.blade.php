@@ -11,8 +11,8 @@
 
             <div class="form-group">
                 <label for="title">Question Title</label>                    
-                <input type="text" id="article-ckeditor" name="title" class="form-control" aria-describedby="titleHelp" value="{{old('title')}}">
-               <small id="titleHelp" class="ml-2">Enter your Question !.</small>
+                <textarea name="title" id="article-ckeditor" cols="30" rows="5" class="form-control">{{old('title')}}</textarea>
+                <small id="titleHelp" class="ml-2">Enter your Question !.</small>
                 @error('title')
                 <br>
                 <small class="text-danger ml-2">{{$message}}</small>

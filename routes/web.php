@@ -260,4 +260,18 @@ Route::group(['prefix'=>'dashboard','middleware'=>['auth',]],function(){
     ]);
     /* ---------Exams-Route End----------- */
     Route::resource('channels', 'ChannelsController');
+    Route::resource('discussions', 'DiscussionsController');
+    Route::post('/discussions/reply/{discussion}',[
+        'uses' => 'DiscussionsController@reply',
+        'as' => 'discussions.reply'
+    ]);
+    Route::post('/reply/like/{id}',[
+        'uses' => 'RepliesController@like',
+        'as' => 'reply.like'
+    ]);
+    Route::post('/reply/unlike/{id}',[
+        'uses' => 'RepliesController@unlike',
+        'as' => 'reply.unlike'
+    ]);
+   
 });

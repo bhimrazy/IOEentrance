@@ -11,7 +11,7 @@
     @csrf
     <div class="box mt-2">
         <div class="box-header with-border">
-            <h3 class="box-title">{{$question->title}}</h3>  
+            <h3 class="box-title">{!!$question->title!!}</h3>  
         </div>
         <div class="box-body pt-2">
             <h6>Tags</h6>

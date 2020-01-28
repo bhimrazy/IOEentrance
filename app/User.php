@@ -42,7 +42,19 @@ class User extends Authenticatable
     }
     public function profile(){
         return $this->hasOne('App\Profile');
-    }    
+    }  
+    public function discussions()
+    {
+        return $this->hasMany('App\Disscussion');
+    }  
+    public function replies()
+    {
+        return $this->hasMany('App\Reply');
+    }  
+    public function likes()
+    {
+        return $this->hasMany('App\Like');
+    }  
     public function imgUrl(){
         if($this->profile){
             $url= '/storage/' . $this->profile->avatar;

@@ -59,7 +59,7 @@ class UsersController extends Controller
         $user->email = $request->email;
         $user->password =bcrypt('password');
         $user->save();       
-        $profile= new App\Profile;
+        $profile= new Profile;
         $profile->user_id=$user->id;
         $profile->save();       
         Session::flash('success','User created successfully ');

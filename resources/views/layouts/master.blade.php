@@ -271,24 +271,26 @@ desired effect
               <li><a href="#">Create new Chapter</a></li>
             </ul>
         </li>
-        <li><a href="{{route('question.create')}}"><i class="fas fa-plus"></i> <span>Create new Question</span></a></li>
-        <li><a href="{{route('questions')}}"><i class="fas fa-list-ul"></i> <span> Questions</span></a></li>
-        <li><a href="{{route('categories')}}"><i class="fas fa-list-ul"></i> <span> Categories</span></a></li>
-        <li><a href="{{route('tags')}}"><i class="fas fa-list-ul"></i> <span> Tags</span></a></li>
-        <li><a href="{{route('users')}}"><i class="fas fa-users"></i> <span>  Users</span></a></li>
-        <li><a href="{{route('user.create')}}"><i class="fas fa-user-plus"></i> <span> Create new User</span></a></li>
-        <li><a href="{{route('examsurvey.create')}}"><i class="fas fa-laptop-code"></i> <span> Take Exam</span></a></li>
         <li class="treeview">
-          <a href="#"><i class="fa fa-link"></i> <span>Example</span>
+          <a href="#"><i class="fas fa-cubes"></i> <span>List View</span>
             <span class="pull-right-container">
                 <i class="fa fa-angle-left pull-right"></i>
               </span>
           </a>
           <ul class="treeview-menu">
-            <li><a href="#">Link in level 2</a></li>
-            <li><a href="#">Link in level 2</a></li>
+            <li><a href="{{route('questions')}}"><i class="fas fa-list-ul"></i> <span> Questions</span></a></li>
+            <li><a href="{{route('categories')}}"><i class="fas fa-list-ul"></i> <span> Categories</span></a></li>
+            <li><a href="{{route('tags')}}"><i class="fas fa-list-ul"></i> <span> Tags</span></a></li>
+            <li><a href="{{route('users')}}"><i class="fas fa-users"></i> <span>  Users</span></a></li>
           </ul>
-        </li>
+      </li>
+        <li><a href="{{route('question.create')}}"><i class="fas fa-plus"></i> <span>Create new Question</span></a></li>
+        <li><a href="{{route('user.create')}}"><i class="fas fa-user-plus"></i> <span> Create new User</span></a></li>
+        <li><a href="{{route('examsurvey.create')}}"><i class="fas fa-laptop-code"></i> <span> Take Exam</span></a></li>
+        <li><a href="{{route('channels.index')}}"><i class="fas fa-laptop-code"></i> <span>Channels</span></a></li>
+        <li><a href="{{route('discussions.index')}}"><i class="fas fa-laptop-code"></i> <span>Discussion Forum</span></a></li>
+       
+       
       </ul>
       <!-- /.sidebar-menu -->
     </section>

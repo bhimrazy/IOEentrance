@@ -263,8 +263,7 @@ desired effect
         <li class="active"><a href="{{route('admin-home')}}"><i class="fas fa-home"></i> <span>Go to Home</span></a></li>
         @elseif(Auth::user()->role->name=='Subscriber')
         <li class="active"><a href="{{route('subscriber-home')}}"><i class="fas fa-home"></i> <span>Go to Home</span></a></li>
-        @endif       
-        <li><a href="{{route('discussions.create')}}"><i class="fa fa-edit"></i> <span>Create new discussion</span></a></li>
+        @endif     
         <li class="treeview">
           <a href="#"><i class="fa fa-link"></i> <span>Channels</span>
             <span class="pull-right-container">
@@ -272,9 +271,8 @@ desired effect
               </span>
           </a>
           <ul class="treeview-menu">
-              @foreach ($channels as $channel)
-              <li><a href="{{route('channels.show',['slug'=>$channel->slug])}}">{{$channel->name}}</a></li>
-              @endforeach          
+            <li><a href="{{route('channels.index')}}">List channels</a></li>
+            <li><a href="{{route('channels.create')}}">Create channel</a></li>
           </ul>
         </li>
       </ul>

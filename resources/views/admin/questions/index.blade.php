@@ -17,7 +17,7 @@
                     @foreach ($category->questions as $key =>$question)
                     <div class="box">
                         <div class="box-header with-border">
-                          <h4 class="box-title"><span><strong>{{$key+1}} </strong>.</span> {{$question->title}}</h4>
+                          <h4 class="box-title"><span><strong>{{$key+1}} </strong>.</span> {!!$question->title!!}</h4>
                         </div>
                         <div class="box-body with-border">
                             <h6>Options</h6>

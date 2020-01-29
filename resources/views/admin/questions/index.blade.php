@@ -23,7 +23,15 @@
                             <h6>Options</h6>
                             <ul class="list-unstyled list-group">
                                 @foreach ($question->options as $k => $option)                            
-                                 <li class="list-group-item m-1 rounded">{{$k+1}} .{{$option->option}}  </li>                         
+                                    @if ($question->correctanswer['correctanswer'] == $option->id)
+                                        <li class="list-group-item bg-olive m-1 rounded">
+                                            <p><strong>{{$k+1}}</strong>&nbsp;{{$option->option}}</p>
+                                        </li>  
+                                    @else
+                                        <li class="list-group-item m-1 rounded">
+                                            <p><strong>{{$k+1}}</strong>&nbsp;{{$option->option}}</p>
+                                        </li>   
+                                    @endif                        
                                 @endforeach 
                             </ul>                          
                          </div>

@@ -7,7 +7,18 @@ use App\Tag;
 use Session;
 
 class TagsController extends Controller
+{ 
+    /**
+ * Constructor.
+ *
+ * @return void
+ */
+ 
+public function __construct()
 {
+    $this->middleware('auth');
+     $this->middleware('admin')->except(['index']);
+}
     /**
      * Display a listing of the resource.
      *

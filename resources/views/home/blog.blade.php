@@ -1,49 +1,23 @@
 @extends('layouts.home')
 
 @section('content')
-<div class="collapse navbar-collapse " id="navbarNav">
-    <div class="mr-auto"></div>
-    <ul class="navbar-nav">
-        <li class="nav-item active">
-            <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
-        </li>
-        <li class="nav-item">
-            <a class="nav-link" href="#">Syllabus</a>
-        </li>
-        <li class="nav-item">
-            <a class="nav-link" href="#">Pages</a>
-        </li>
-        <li class="nav-item">
-            <a class="nav-link" href="/blog.html">Blog</a>
-        </li>
-        <li class="nav-item">
-            <a class="nav-link" href="#">Fact</a>
-        </li>
-        <li class="nav-item">
-            <a class="nav-link" href="#">About</a>
-        </li>
-
-        <li class="nav-item">
-            <a class="nav-link" href="#">Account</a>
-        </li>
-
-    </ul>
-</div>
-@endsection
-@section('main')
-<main>
+<div class="container text-center">
     <section class="site-title">
         <div class="container text-center">
             <div class="row">
                 <div class="col-md-12 col-sm-12">
                     <h1>IOEentrance | Practice and Aim Higher</h1>
-                    <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Voluptatibus eius temporibus alias,
-                        doloremque veritatis iusto architecto. </p>
+                    <p>An online based entrance platform with an aim and approach to help students.</p>
                     <button class="btn btn-light px-5 py-2 mt-3">Register Now</button>
                 </div>
             </div>
         </div>
     </section>
+</div>
+@endsection
+@section('main')
+<main>
+   
     <!-- --------------------- Blog Carousel ----------------- -->
 
     <section>

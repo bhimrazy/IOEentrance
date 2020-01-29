@@ -108,7 +108,7 @@
             <div class="row text-left">
                 <div class="col-md-5">
                     <h1 class="text-light">About us</h1>
-                    <p class="text-secondary">Lorem ipsum dolor, sit amet consectetur adipisicing.</p>
+                    <p class="text-secondary">An Online Based Entrance System with an approach to help students.</p>
                 </div>
                 <div class="col-md-5">
                     <h4 class="text-light">Newsletter</h4>

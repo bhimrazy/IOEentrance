@@ -44,12 +44,12 @@ Route::group(['prefix'=>'dashboard','middleware'=>['auth',]],function(){
         Route::get('/user/create',[
             'uses' => 'UsersController@create',
             'as' => 'user.create'
-        ])->middleware('admin');
+        ]);
         
         Route::post('/user/store',[
             'uses' => 'UsersController@store',
             'as' => 'user.store'
-        ])->middleware('admin');
+        ]);
         // Route::get('/user/edit/{id}',[
         //     'uses' => 'UsersController@edit',
         //     'as' => 'user.edit'
@@ -57,7 +57,7 @@ Route::group(['prefix'=>'dashboard','middleware'=>['auth',]],function(){
         Route::get('/user/delete/{id}',[
             'uses' => 'UsersController@destroy',
             'as' => 'user.delete'
-        ])->middleware('admin');
+        ]);
         // Route::post('/user/update/{id}',[
         //     'uses' => 'UsersController@update',
         //     'as' => 'user.update'
@@ -65,7 +65,7 @@ Route::group(['prefix'=>'dashboard','middleware'=>['auth',]],function(){
         Route::get('/user/changerole/{id}',[
             'uses' => 'UsersController@changerole',
             'as' => 'user.changerole'
-        ])->middleware('admin');
+        ]);
         
         /* ---------Questions------------ */
         Route::get('/questions',[

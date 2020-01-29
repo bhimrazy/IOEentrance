@@ -6,6 +6,11 @@ use Illuminate\Http\Request;
 
 class ChannelsController extends Controller
 {
+    public function __construct()
+    {
+        $this->middleware('auth');
+         $this->middleware('subadmin')->except(['show']);
+    }
     /**
      * Display a listing of the resource.
      *

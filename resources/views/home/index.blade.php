@@ -6,9 +6,8 @@
         <div class="col-md-7 col-sm-12">
             <h6>AUTHOR:BHIMRAJ YADAV</h6>
             <h1>IOEentrance | Practice and Aim Higher</h1>
-            <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Voluptatibus eius temporibus alias,
-                doloremque veritatis iusto architecto deserunt saepe unde nesciunt repellendus pariatur tempore
-                nemo ipsum ab hic, dicta accusantium ut.</p>
+            <p>IOEentrance is an online based entrance system which tends to provide a platform to the students 
+                to practice for the entrance and help them in improving thier skills.</p>
             <button class="btn btn-light px-5 py-2 mt-3 shadow">Register Now</button>
         </div>
         <div class="col-md-5 col-sm-12 h-10">
@@ -128,8 +127,7 @@
         <div class="row">
             <div class="col-md-12 col-sm-12">
                 <h1>Add to Homescreen For All Platforms.</h1>
-                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Aut ducimus aliquam quos? Ipsa nisi
-                    perferendis maxime alias ex quam ut.</p>
+                <p>This is a progressive web application and it can be added to homescreen of desktop and native environment.</p>
             </div>
         </div>
         <div class="platform row">
@@ -138,8 +136,8 @@
                     <div class="d-flex flex-row justify-content-center">
                         <i class="fas fa-desktop fa-3x py-2 pr-3"></i>
                         <div class="text text-left">
-                            <h3 class="pt-1 m-0">On Desktop</h3>
-                            <p class="p-0 m-0">On Website</p>
+                            <h3 id="desktop" class="pt-1 m-0">On Desktop</h3>
+                            <p class="p-0 m-0">Install now</p>
                         </div>
                     </div>
                 </div>
@@ -149,8 +147,8 @@
                     <div class="d-flex flex-row justify-content-center">
                         <i class="fas fa-mobile fa-3x py-2 pr-3"></i>
                         <div class="text text-left">
-                            <h3 class="pt-1 m-0">On Mobile</h3>
-                            <p class="p-0 m-0">From Website</p>
+                            <h3 id="mobile" class="pt-1 m-0">On Mobile</h3>
+                            <p class="p-0 m-0">Install now</p>
                         </div>
                     </div>
                 </div>
@@ -249,6 +247,86 @@
                             quaerat cumque esse odit sint!</p>
                         <a href="#" class="text-secondary text-decoration-none">Go Somewhere</a>
                         <p class="text-black-50">CEO at Google</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <section class="single-section contact-area silver-bg " id="contact-area">
+        <div class="container ">
+            <div class="row">
+                <div class="col-12">
+                    <div class="section-heading text-center" data-wow-duration="1s" data-wow-delay="1s" style="visibility: visible; animation-duration: 1s; animation-delay: 1s; animation-name: bounceInUp;">
+                        <h2 class="section-title">Get in Touch with Us</h2>
+                        <p class="section-description">Please send your message to us.</p>
+                    </div>
+                </div>
+            </div>
+            <div class="row " data-wow-duration="1s" data-wow-delay="1s" style="visibility: visible; animation-duration: 1s; animation-delay: 1s; animation-name: slideInUp;">
+                <div class="col-12 col-lg-7">
+                    <form class="contact-form" id="contact-form" method="post" action="php/contact.php">
+                        <h4 class="form-title">Write Your Message. </h4>
+                        <div class="row">
+                            <div class="col-12 col-md-6 form-group">
+                                <input type="text" name="name" class="form-control" id="contact-name" placeholder="Name" required="">
+                            </div>
+                            <div class="col-12 col-md-6 form-group">
+                                <input type="email" name="email" class="form-control" id="contact-email" placeholder="Email" required="">
+                            </div>
+                            <div class="col-12 form-group">
+                                <input type="text" name="subject" class="form-control" id="contact-subject" placeholder="Subject" required="">
+                            </div>
+                            <div class="col-12 form-group custom-margin">
+                                <textarea name="message" class="form-control" id="contact-message" placeholder="Message" rows="5" required=""></textarea>
+                            </div>
+                            <div class="col-12">
+                                <button type="submit" class="btn button-scheme" id="contact-submit">Submit</button>
+                                <p class="feedback-error">Oops! Something went wrong. Please try again.</p>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+                <div class="col-12 col-lg-5">
+                    <div class="contact-info " data-wow-duration="1s" data-wow-delay="1s" style="visibility: visible; animation-duration: 1s; animation-delay: 1s; animation-name: slideInUp;">
+                        <h4 class="info-title">Contact Info</h4>
+                        <p class="info-description">Always available for freelance work if the right project comes along, Feel free to contact us!</p>
+                        <ul class="list-unstyled">
+                            <li>
+                                <div class="media align-items-center">
+                                    <span class="info-icon">
+                                    <i class="icon ion-md-map"></i>
+                                </span>
+                                    <div class="media-body">
+                                        <h6 class="info-type">Location</h6>
+                                        <span class="info-details">Balkumari , Lalitpur</span>
+                                    </div>
+                                </div>
+                            </li>
+                            <li>
+                                <div class="media align-items-center">
+                                    <span class="info-icon">
+                                    <i class="icon ion-md-call"></i>
+                                </span>
+                                    <div class="media-body">
+                                        <h6 class="info-type">Contact us</h6>
+                                        <span class="info-details"><a href="tel:+9779800000000">+977 9800000000</a></span>
+                                    </div>
+                                </div>
+                            </li>
+                            <li>
+                                <div class="media align-items-center">
+                                    <span class="info-icon">
+                                    <i class="icon ion-md-mail-unread"></i>
+                                </span>
+                                    <div class="media-body">
+                                        <h6 class="info-type">Email Us</h6>
+                                        <span class="info-details"><a href="mailto: 
+                                            kathfest2019@kathford.edu.np"> 
+                                            kathfest2019@kathford.edu.np</a></span>
+                                    </div>
+                                </div>
+                            </li>
+                        </ul>
                     </div>
                 </div>
             </div>

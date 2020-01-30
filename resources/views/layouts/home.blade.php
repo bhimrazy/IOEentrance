@@ -59,7 +59,10 @@
                         <a class="nav-link" href="/blog">Blog</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="/">Fact</a>
+                        <a class="nav-link" href="{{route('reviews.index')}}">Reviews</a>
+                            </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="/">Contact</a>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link" href="/">About</a>

@@ -252,20 +252,21 @@
             </div>
         </div>
     </section>
-    <section class="single-section contact-area silver-bg " id="contact-area">
+    <section class="single-section contact-area" id="contact-area">
         <div class="container ">
             <div class="row">
                 <div class="col-12">
                     <div class="section-heading text-center" data-wow-duration="1s" data-wow-delay="1s" style="visibility: visible; animation-duration: 1s; animation-delay: 1s; animation-name: bounceInUp;">
                         <h2 class="section-title">Get in Touch with Us</h2>
-                        <p class="section-description">Please send your message to us.</p>
+                        <p class="section-description">Please send your review and message to us.</p>
                     </div>
                 </div>
             </div>
             <div class="row " data-wow-duration="1s" data-wow-delay="1s" style="visibility: visible; animation-duration: 1s; animation-delay: 1s; animation-name: slideInUp;">
                 <div class="col-12 col-lg-7">
-                    <form class="contact-form" id="contact-form" method="post" action="php/contact.php">
-                        <h4 class="form-title">Write Your Message. </h4>
+                <form class="contact-form" id="contact-form" method="post" action="{{route('reviews.store')}}">
+                        @csrf
+                        <h4 class="form-title">Write Your Review. </h4>
                         <div class="row">
                             <div class="col-12 col-md-6 form-group">
                                 <input type="text" name="name" class="form-control" id="contact-name" placeholder="Name" required="">
@@ -273,10 +274,7 @@
                             <div class="col-12 col-md-6 form-group">
                                 <input type="email" name="email" class="form-control" id="contact-email" placeholder="Email" required="">
                             </div>
-                            <div class="col-12 form-group">
-                                <input type="text" name="subject" class="form-control" id="contact-subject" placeholder="Subject" required="">
-                            </div>
-                            <div class="col-12 form-group custom-margin">
+                           <div class="col-12 form-group custom-margin">
                                 <textarea name="message" class="form-control" id="contact-message" placeholder="Message" rows="5" required=""></textarea>
                             </div>
                             <div class="col-12">
@@ -289,12 +287,12 @@
                 <div class="col-12 col-lg-5">
                     <div class="contact-info " data-wow-duration="1s" data-wow-delay="1s" style="visibility: visible; animation-duration: 1s; animation-delay: 1s; animation-name: slideInUp;">
                         <h4 class="info-title">Contact Info</h4>
-                        <p class="info-description">Always available for freelance work if the right project comes along, Feel free to contact us!</p>
+                        <p class="info-description">Always available to help you.Contact us for any issue.</p>
                         <ul class="list-unstyled">
                             <li>
                                 <div class="media align-items-center">
                                     <span class="info-icon">
-                                    <i class="icon ion-md-map"></i>
+                                    <i class="fas fa-map-marked-alt"></i>
                                 </span>
                                     <div class="media-body">
                                         <h6 class="info-type">Location</h6>
@@ -305,7 +303,7 @@
                             <li>
                                 <div class="media align-items-center">
                                     <span class="info-icon">
-                                    <i class="icon ion-md-call"></i>
+                                        <i class="fas fa-phone-alt"></i>
                                 </span>
                                     <div class="media-body">
                                         <h6 class="info-type">Contact us</h6>
@@ -316,13 +314,13 @@
                             <li>
                                 <div class="media align-items-center">
                                     <span class="info-icon">
-                                    <i class="icon ion-md-mail-unread"></i>
+                                    <i class="fas fa-paper-plane"></i>
                                 </span>
                                     <div class="media-body">
                                         <h6 class="info-type">Email Us</h6>
                                         <span class="info-details"><a href="mailto: 
-                                            kathfest2019@kathford.edu.np"> 
-                                            kathfest2019@kathford.edu.np</a></span>
+                                            ioeentrance@bhimraj.com.np"> 
+                                            ioeentrance@bhimraj.com.np</a></span>
                                     </div>
                                 </div>
                             </li>

@@ -19,7 +19,7 @@ Route::group(['prefix'=>''],function(){
     Route::get('/blog', function () {
         return view('home.blog');
     });
-     
+    Route::resource('reviews', 'ReviewsController'); 
 });
 
  /* ---------Authenticated------------ */

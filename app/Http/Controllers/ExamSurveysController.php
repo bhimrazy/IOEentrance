@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Question;
+use Auth;
+use App\Examsurvey;
 class ExamSurveysController extends Controller
 {
     /**
@@ -12,8 +14,8 @@ class ExamSurveysController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function index()
-    {
-        return view('examSurvey.index')->with('questions',Question::all());
+    {   $user= auth()->user();
+        return view('examSurvey.index')->with('examsurveys',$user->examsurveys);
     }
 
     /**
@@ -74,6 +76,16 @@ class ExamSurveysController extends Controller
                 }       
            
         }
+        $examsurvey = new Examsurvey;
+        $examsurvey->user_id =Auth::id();
+        $examsurvey->rightanswer1mark=$rightAnswer_1mark;
+        $examsurvey->rightanswer2mark=$rightAnswer_2mark;
+        $examsurvey->wronganswer1mark=$wrongAnswer_1mark;
+        $examsurvey->wronganswer2mark=$wrongAnswer_2mark;
+        $examsurvey->notanswered1mark=$notAnswered_1mark;
+        $examsurvey->notanswered2mark=$notAnswered_2mark;
+        $examsurvey->total= (($rightAnswer_1mark*1+$rightAnswer_2mark*2)-($wrongAnswer_1mark*1+$wrongAnswer_2mark*2)*0.1);
+        $examsurvey->save();
         return view('examSurvey.show')->with('rightAnswer_1mark',$rightAnswer_1mark)->with('wrongAnswer_1mark',$wrongAnswer_1mark)
                                       ->with('rightAnswer_2mark',$rightAnswer_2mark)->with('wrongAnswer_2mark',$wrongAnswer_2mark)
                                       ->with('questions',\App\Question::all())->with('responses',$allresponses)
@@ -90,7 +102,8 @@ class ExamSurveysController extends Controller
      */
     public function show($id)
     {
-        //
+        $examsurvey= Examsurvey::findOrFail($id);
+        return view('examSurvey.surveyshow')->with('examsurvey',$examsurvey);
     }
 
     /**
@@ -124,6 +137,7 @@ class ExamSurveysController extends Controller
      */
     public function destroy($id)
     {
-        //
+       Examsurvey::findOrFail($id)->delete();
+       return redirect()->back()->with('success','You successfully deleted the survey');
     }
 }

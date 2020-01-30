@@ -12,8 +12,8 @@ class SubscribersController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function index()
-    {   
-        return view('subscriber.index');
+    {    $user= auth()->user();
+        return view('subscriber.index')->with('user',$user);
     }
 
     /**

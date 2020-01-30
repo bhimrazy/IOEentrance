@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\User;
 use App\Profile;
 use App\Role;
+use Storage;
 use Session;
 class UsersController extends Controller
 {   
@@ -109,6 +110,8 @@ class UsersController extends Controller
     public function destroy($id)
     {
         $user = User::find($id);
+        $image_path ='/storage/'.$user->profile->avatar;       
+        unlink(public_path() . $image_path);
         $user->profile()->delete();
         $user->delete();
         Session::flash('success','You successfully deleted the user');

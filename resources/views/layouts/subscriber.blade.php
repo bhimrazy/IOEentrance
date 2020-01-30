@@ -258,7 +258,7 @@ desired effect
         <li class="header">HEADER</li>
         <!-- Optionally, you can add icons to the links -->
         <li class="active"><a href="{{route('subscriber-home')}}"><i class="fas fa-home"></i> <span>Home</span></a></li>               
-        <li><a href="{{route('examsurvey.create')}}"><i class="fas fa-laptop-code"></i> <span> Take Exam</span></a></li>
+        <li><a href="{{route('examsurvey.index')}}"><i class="fas fa-laptop-code"></i> <span>Exam Section</span></a></li>
         <li><a href="{{route('subscriber-profile')}}"><i class="fas fa-user-circle"></i><span> Profile</span></a></li>
         <li><a href="{{route('discussions.index')}}"><i class="fas fa-laptop-code"></i> <span>Discussion Forum</span></a></li>
       </ul>

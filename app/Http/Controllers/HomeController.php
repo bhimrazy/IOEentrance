@@ -4,7 +4,9 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\User;
+use App\Examsurvey;
 use App\Question;
+use App\Discussion;
 class HomeController extends Controller
 {
     // /**
@@ -25,6 +27,8 @@ class HomeController extends Controller
     public function index()
     {   
 
-        return view('admin.index')->with('users',User::all())->with('questions',Question::all());
+        return view('admin.index')->with('users',User::all())->with('questions',Question::all())
+                                    ->with('examsurveys',Examsurvey::all())
+                                    ->with('discussions',Discussion::all());
     }
 }

@@ -7,11 +7,11 @@ use App\Review;
 
 class ReviewsController extends Controller
 {   
-       public function __construct()
-    {
+    //    public function __construct()
+    // {
       
-         $this->middleware('subadmin')->except(['index']);
-    }
+    //      $this->middleware('subadmin')->except(['index','store']);
+    // }
     /**
      * Display a listing of the resource.
      *
@@ -19,7 +19,7 @@ class ReviewsController extends Controller
      */
     public function index()
     {
-        return view('home.review')->with('reviews',Review::all());
+        return view('home.review')->with('reviews',Review::orderBy('created_at','desc')->paginate(3));
     }
 
     /**
@@ -39,18 +39,14 @@ class ReviewsController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function store(Request $request)
-    {   
-       $data= $this->validate($request,[
-            'name'=>'required',
-            'email'=>'required|string|email|max:255|unique:users',
-            'message'=>'required'
-         ]);
-         $review = new Review;
-         $review->name=$data['name'];
-         $review->email=$data['email'];
-         $review->message=$data['message'];
-         $review->save();
-        dd($review);
+    {   // dd($request);
+
+        $review = Review::create([
+            'name'=>$request->name,
+            'email'=>$request->email,
+            'content'=>$request->message
+        ]);
+            
         return redirect()->route('reviews.index');
     }
 
@@ -94,9 +90,9 @@ class ReviewsController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Review $review)
-    {  
-        $review->delete();
+    public function destroy($id)
+    {  Review::findOrFail($id)->delete();
+    
         return redirect()->back();
     }
 }

@@ -10,61 +10,73 @@
                     <p>An online based entrance platform with an aim and approach to help students.</p>
                     <button class="btn btn-light px-5 py-2 mt-3">Register Now</button>
                 </div>
-            </div>
+            </div>           
         </div>
     </section>
 </div>
 @endsection
 @section('main')
-<section class="section-4">
+<section class="section py-4">
     <div class="container text-center">
         <h1 class="text-dark">What our Reader's Say About us</h1>
-        <p class="text-secondary">Lorem ipsum dolor sit amet.</p>
     </div>
-    @foreach ($reviews as $review)
-    <div class="container">
-        <div class="card">
+   <div class="container m-4">
+       @foreach ($reviews as $review)
+        <div class="card m-2">
             <div class="card-header">
-                {{$review->name}} <small>{{$review->email}}</small>
+                <h2>{{$review->name}}&nbsp;&nbsp;&nbsp;&nbsp;<small class="text-secondary">{{$review->email}}</small></h2>
+                 
             </div>
-            <div class="card body">
-                {{$review->messgae}}
+            <div class="card-body">
+                <p>{{$review->content}}</p>
+                <small>{{$review->created_at->diffForHumans()}}</small>
             </div>
-            @if ('auth')
-                <form action="{{route('reviews.destroy',['review'=>$review->id])}}" method="post">
-                    @csrf
-                    @method('delete')
-                <button class="btn btn-danger" type="submit"> Delete</button>
-                </form>        
-            @endif        
+           <div class="card-footer">
+            @auth
+            @if(Auth::user()->role->name=='Admin')
+            <div class="nav-item">
+                <a class="btn btn-danger" type="submit" href="{{route('reviews.destroy',$review->id)}}">Delete</a>
+            </div>
+            @endif
+            @endauth
+           </div>
         </div>
-    </div>
-    @endforeach
+       @endforeach
+       <div class="text-center">
+           {{$reviews->links()}}
+       </div>
+   </div>
 </section>
+
 <section class="single-section contact-area" id="contact-area">
     <div class="container ">
         <div class="row">
             <div class="col-12">
-                <div class="section-heading text-center" data-wow-duration="1s" data-wow-delay="1s" style="visibility: visible; animation-duration: 1s; animation-delay: 1s; animation-name: bounceInUp;">
+                <div class="section-heading text-center" data-wow-duration="1s" data-wow-delay="1s"
+                    style="visibility: visible; animation-duration: 1s; animation-delay: 1s; animation-name: bounceInUp;">
                     <h2 class="section-title">Get in Touch with Us</h2>
                     <p class="section-description">Please send your review and message to us.</p>
                 </div>
             </div>
         </div>
-        <div class="row " data-wow-duration="1s" data-wow-delay="1s" style="visibility: visible; animation-duration: 1s; animation-delay: 1s; animation-name: slideInUp;">
+        <div class="row " data-wow-duration="1s" data-wow-delay="1s"
+            style="visibility: visible; animation-duration: 1s; animation-delay: 1s; animation-name: slideInUp;">
             <div class="col-12 col-lg-7">
-            <form class="contact-form" id="contact-form" method="post" action="{{route('reviews.store')}}">
+                <form class="contact-form" id="contact-form" method="post" action="{{route('reviews.store')}}">
                     @csrf
                     <h4 class="form-title">Write Your Review. </h4>
                     <div class="row">
                         <div class="col-12 col-md-6 form-group">
-                            <input type="text" name="name" class="form-control" id="contact-name" placeholder="Name" required="">
+                            <input type="text" name="name" class="form-control" id="contact-name" placeholder="Name"
+                                required="">
                         </div>
                         <div class="col-12 col-md-6 form-group">
-                            <input type="email" name="email" class="form-control" id="contact-email" placeholder="Email" required="">
+                            <input type="email" name="email" class="form-control" id="contact-email" placeholder="Email"
+                                required="">
                         </div>
-                       <div class="col-12 form-group custom-margin">
-                            <textarea name="message" class="form-control" id="contact-message" placeholder="Message" rows="5" required=""></textarea>
+                        <div class="col-12 form-group custom-margin">
+                            <textarea name="message" class="form-control" id="contact-message" placeholder="Message"
+                                rows="5" required=""></textarea>
                         </div>
                         <div class="col-12">
                             <button type="submit" class="btn button-scheme" id="contact-submit">Submit</button>
@@ -74,15 +86,16 @@
                 </form>
             </div>
             <div class="col-12 col-lg-5">
-                <div class="contact-info " data-wow-duration="1s" data-wow-delay="1s" style="visibility: visible; animation-duration: 1s; animation-delay: 1s; animation-name: slideInUp;">
+                <div class="contact-info " data-wow-duration="1s" data-wow-delay="1s"
+                    style="visibility: visible; animation-duration: 1s; animation-delay: 1s; animation-name: slideInUp;">
                     <h4 class="info-title">Contact Info</h4>
                     <p class="info-description">Always available to help you.Contact us for any issue.</p>
                     <ul class="list-unstyled">
                         <li>
                             <div class="media align-items-center">
                                 <span class="info-icon">
-                                <i class="fas fa-map-marked-alt"></i>
-                            </span>
+                                    <i class="fas fa-map-marked-alt"></i>
+                                </span>
                                 <div class="media-body">
                                     <h6 class="info-type">Location</h6>
                                     <span class="info-details">Balkumari , Lalitpur</span>
@@ -93,7 +106,7 @@
                             <div class="media align-items-center">
                                 <span class="info-icon">
                                     <i class="fas fa-phone-alt"></i>
-                            </span>
+                                </span>
                                 <div class="media-body">
                                     <h6 class="info-type">Contact us</h6>
                                     <span class="info-details"><a href="tel:+9779800000000">+977 9800000000</a></span>
@@ -103,13 +116,13 @@
                         <li>
                             <div class="media align-items-center">
                                 <span class="info-icon">
-                                <i class="fas fa-paper-plane"></i>
-                            </span>
+                                    <i class="fas fa-paper-plane"></i>
+                                </span>
                                 <div class="media-body">
                                     <h6 class="info-type">Email Us</h6>
                                     <span class="info-details"><a href="mailto: 
-                                        ioeentrance@bhimraj.com.np"> 
-                                        ioeentrance@bhimraj.com.np</a></span>
+                                        ioeentrance@bhimraj.com.np">
+                                            ioeentrance@bhimraj.com.np</a></span>
                                 </div>
                             </div>
                         </li>
@@ -122,4 +135,8 @@
 
 </main>
 
+@endsection
+@section('script')
+<script src="{{ asset('/js/main.js') }}"></script>
+<script src="{{ asset('/js/owl.carousel.min.js') }}"></script>
 @endsection

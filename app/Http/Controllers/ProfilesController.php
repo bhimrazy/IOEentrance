@@ -57,9 +57,10 @@ class ProfilesController extends Controller
         ]);
            
        $user= auth()->user();
+       $name=str_slug($user->name);
        $user->name=$data['name'];
        $user->email=$data['email'];   
-       $imagePath=request('avatar')->storeAs('profiles',$user->name.'-profile.png','public');
+       $imagePath=request('avatar')->storeAs('profiles',$name.'-profile.png','public');
        $image = Image::make(public_path("storage/{$imagePath}"))->fit(200,200);
        $image->save();     
       if($user->profile){

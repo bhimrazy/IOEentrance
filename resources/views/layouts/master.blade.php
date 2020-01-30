@@ -282,11 +282,13 @@ desired effect
             <li><a href="{{route('categories')}}"><i class="fas fa-list-ul"></i> <span> Categories</span></a></li>
             <li><a href="{{route('tags')}}"><i class="fas fa-list-ul"></i> <span> Tags</span></a></li>
             <li><a href="{{route('users')}}"><i class="fas fa-users"></i> <span>  Users</span></a></li>
+            <li><a href="{{route('posts.index')}}"><i class="fas fa-address-card"></i> <span>  Posts</span></a></li>
           </ul>
       </li>
+        <li><a href="{{route('posts.create')}}"><i class="fas fa-plus"></i> <span>Create new Post</span></a></li>
         <li><a href="{{route('question.create')}}"><i class="fas fa-plus"></i> <span>Create new Question</span></a></li>
         <li><a href="{{route('user.create')}}"><i class="fas fa-user-plus"></i> <span> Create new User</span></a></li>
-        <li><a href="{{route('examsurvey.create')}}"><i class="fas fa-laptop-code"></i> <span> Take Exam</span></a></li>
+        <li><a href="{{route('examsurvey.index')}}"><i class="fas fa-laptop-code"></i> <span>Exam section</span></a></li>
         <li><a href="{{route('channels.index')}}"><i class="fas fa-laptop-code"></i> <span>Channels</span></a></li>
         <li><a href="{{route('discussions.index')}}"><i class="fas fa-laptop-code"></i> <span>Discussion Forum</span></a></li>
        

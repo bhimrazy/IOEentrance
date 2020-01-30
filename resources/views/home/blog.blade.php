@@ -73,118 +73,32 @@
     <section class="container">
         <div class="site-content">
             <div class="posts">
-                <div class="post-content">
-                    <div class="post-image">
-                        <div>
-                            <img src="./assets/Blog-post/blog1.png" class="img" alt="blog1">
-                        </div>
-                        <div class="post-info flex-row">
-                            <span><i class="fas fa-user text-gray"></i>&nbsp;&nbsp;Admin</span>
-                            <span><i class="fas fa-calendar-alt text-gray"></i>&nbsp;&nbsp;January 14,
-                                2019</span>
-                            <span>2 Commets</span>
-                        </div>
+               @foreach ($posts as $post)
+               <div class="post-content">
+                <div class="post-image">
+                    <div>
+                        <img src="{{$post->imgUrl()}}" class="img" alt="blog1">
                     </div>
-                    <div class="post-title">
-                        <a href="#">Why should boys have all the fun? it's the women who are making india an
-                            alcohol-loving contry</a>
-                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Neque voluptas deserunt
-                            beatae
-                            adipisci iusto totam placeat corrupti ipsum, tempora magnam incidunt aperiam tenetur
-                            a
-                            nobis, voluptate, numquam architecto fugit. Eligendi quidem ipsam ducimus minus
-                            magni
-                            illum similique veniam tempore unde?
-                        </p>
-                        <button class="btn post-btn">Read More &nbsp; <i class="fas fa-arrow-right"></i></button>
+                    <div class="post-info flex-row">
+                        <span><i class="fas fa-user text-gray"></i>&nbsp;&nbsp;Admin</span>
+                        <span><i class="fas fa-calendar-alt text-gray"></i>&nbsp;&nbsp;January 14,
+                            2019</span>
+                        <span>2 Comments</span>
                     </div>
                 </div>
-                <hr>
-                <div class="post-content">
-                    <div class="post-image">
-                        <div>
-                            <img src="./assets/Blog-post/blog2.png" class="img" alt="blog1">
-                        </div>
-                        <div class="post-info flex-row">
-                            <span><i class="fas fa-user text-gray"></i>&nbsp;&nbsp;Admin</span>
-                            <span><i class="fas fa-calendar-alt text-gray"></i>&nbsp;&nbsp;January 16,
-                                2019</span>
-                            <span>7 Commets</span>
-                        </div>
-                    </div>
-                    <div class="post-title">
-                        <a href="#">Why should boys have all the fun? it's the women who are making india an
-                            alcohol-loving contry</a>
-                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Neque voluptas deserunt
-                            beatae
-                            adipisci iusto totam placeat corrupti ipsum, tempora magnam incidunt aperiam tenetur
-                            a
-                            nobis, voluptate, numquam architecto fugit. Eligendi quidem ipsam ducimus minus
-                            magni
-                            illum similique veniam tempore unde?
-                        </p>
-                        <button class="btn post-btn">Read More &nbsp; <i class="fas fa-arrow-right"></i></button>
-                    </div>
+                <div class="post-title">
+                <a href="#">{{$post->title}}</a>
+                    {!!str_limit($post->content,400)!!}
+                    <button class="btn post-btn">Read More &nbsp; <i class="fas fa-arrow-right"></i></button>
                 </div>
-                <hr>
-                <div class="post-content">
-                    <div class="post-image">
-                        <div>
-                            <img src="./assets/Blog-post/blog3.png" class="img" alt="blog1">
-                        </div>
-                        <div class="post-info flex-row">
-                            <span><i class="fas fa-user text-gray"></i>&nbsp;&nbsp;Admin</span>
-                            <span><i class="fas fa-calendar-alt text-gray"></i>&nbsp;&nbsp;January 19,
-                                2019</span>
-                            <span>5 Commets</span>
-                        </div>
+            </div>
+            <hr>
+               @endforeach
+                                
+                                    
+                    <div class="text-center">
+                        {{$posts->links()}}
                     </div>
-                    <div class="post-title">
-                        <a href="#">New data recording system to better analyse road accidents</a>
-                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Neque voluptas deserunt
-                            beatae
-                            adipisci iusto totam placeat corrupti ipsum, tempora magnam incidunt aperiam tenetur
-                            a
-                            nobis, voluptate, numquam architecto fugit. Eligendi quidem ipsam ducimus minus
-                            magni
-                            illum similique veniam tempore unde?
-                        </p>
-                        <button class="btn post-btn">Read More &nbsp; <i class="fas fa-arrow-right"></i></button>
-                    </div>
-                </div>
-                <hr>
-                <div class="post-content">
-                    <div class="post-image">
-                        <div>
-                            <img src="./assets/Blog-post/blog4.png" class="img" alt="blog1">
-                        </div>
-                        <div class="post-info flex-row">
-                            <span><i class="fas fa-user text-gray"></i>&nbsp;&nbsp;Admin</span>
-                            <span><i class="fas fa-calendar-alt text-gray"></i>&nbsp;&nbsp;January 21,
-                                2019</span>
-                            <span>12 Commets</span>
-                        </div>
-                    </div>
-                    <div class="post-title">
-                        <a href="#">New data recording system to better analyse road accidents</a>
-                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Neque voluptas deserunt
-                            beatae
-                            adipisci iusto totam placeat corrupti ipsum, tempora magnam incidunt aperiam tenetur
-                            a
-                            nobis, voluptate, numquam architecto fugit. Eligendi quidem ipsam ducimus minus
-                            magni
-                            illum similique veniam tempore unde?
-                        </p>
-                        <button class="btn post-btn">Read More &nbsp; <i class="fas fa-arrow-right"></i></button>
-                    </div>
-                </div>
-                <div class="pagination flex-row">
-                    <a href="#"><i class="fas fa-chevron-left"></i></a>
-                    <a href="#" class="pages">1</a>
-                    <a href="#" class="pages">2</a>
-                    <a href="#" class="pages">3</a>
-                    <a href="#"><i class="fas fa-chevron-right"></i></a>
-                </div>
             </div>
             <aside class="sidebar">
                 <div class="category">
@@ -290,13 +204,13 @@
                         </div>
                     </div>
                 </div>
-                <div class="newsletter" data-aos="fade-up" data-aos-delay="300">
+                {{-- <div class="newsletter" data-aos="fade-up" data-aos-delay="300">
                     <h2>Newsletter</h2>
                     <div class="form-element">
                         <input type="text" class="input-element" placeholder="Email">
                         <button class="btn form-btn">Subscribe</button>
                     </div>
-                </div>
+                </div> --}}
                 <div class="popular-tags">
                     <h2>Popular Tags</h2>
                     <div class="tags">

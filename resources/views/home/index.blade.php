@@ -44,7 +44,7 @@
             </div>
         </div>
     </section>  
-    <section class="section-2 container-fluid">
+    <section id="features" class="section-2 container-fluid">
         <div class="cover">
             <div class="content text-center">
                 <h1>Some Features That Made Us Unique</h1>
@@ -74,7 +74,7 @@
             </div>
         </div>
 
-        <div class="service text-center">
+        <div id="services" class="service text-center">
             <h1>The Services that we provide.</h1>
             <p>Lorem, ipsum dolor sit amet consectetur adipisicing.</p>
             <div class="cards">
@@ -174,7 +174,6 @@
     <section class="section-4">
         <div class="container text-center">
             <h1 class="text-dark">What our Reader's Say About us</h1>
-            <p class="text-secondary">Lorem ipsum dolor sit amet.</p>
         </div>
         <div class="team d-flex flex-row">
             <div class="col-md-4 col-12 text-center">
@@ -252,7 +251,7 @@
             </div>
         </div>
     </section>
-    <section class="single-section contact-area" id="contact-area">
+    <section id="contact" class="single-section contact-area" id="contact-area">
         <div class="container ">
             <div class="row">
                 <div class="col-12">

@@ -264,17 +264,8 @@ desired effect
         @elseif(Auth::user()->role->name=='Subscriber')
         <li class="active"><a href="{{route('subscriber-home')}}"><i class="fas fa-home"></i> <span>Go to Home</span></a></li>
         @endif     
-        <li class="treeview">
-          <a href="#"><i class="fa fa-link"></i> <span>Example</span>
-            <span class="pull-right-container">
-                <i class="fa fa-angle-left pull-right"></i>
-              </span>
-          </a>
-          <ul class="treeview-menu">
-            <li><a href="#">Link in level 2</a></li>
-            <li><a href="#">Link in level 2</a></li>
-          </ul>
-        </li>
+        <li><a href="{{route('examsurvey.index')}}"><i class="fas fa-laptop-code"></i> <span>Exam section</span></a></li>
+        <li><a href="{{route('examsurvey.create')}}"><i class="fas fa-laptop-code"></i> <span>Take exam</span></a></li>
       </ul>
       <!-- /.sidebar-menu -->
     </section>

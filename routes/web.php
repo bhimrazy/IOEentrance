@@ -17,9 +17,20 @@ Route::group(['prefix'=>''],function(){
         return view('home.index');
     });
     Route::get('/blog', function () {
-        return view('home.blog');
+        return view('home.blog')->with('posts',\App\Post::orderBy('created_at','desc')->paginate(3));
     });
-    Route::resource('reviews', 'ReviewsController'); 
+    Route::post('/reviews/store',[
+        'uses' => 'ReviewsController@store',
+        'as' => 'reviews.store'
+    ]);
+    Route::get('/reviews',[
+        'uses' => 'ReviewsController@index',
+        'as' => 'reviews.index'
+    ]);
+    Route::get('/reviews/delete/{id}',[
+        'uses' => 'ReviewsController@destroy',
+        'as' => 'reviews.destroy'
+    ]);
 });
 
  /* ---------Authenticated------------ */
@@ -209,6 +220,8 @@ Route::group(['prefix'=>'dashboard','middleware'=>['auth',]],function(){
             'uses' => 'ProfilesController@adminindex',
             'as' => 'admin-profile'
         ]);
+        /* ---------Posts------------ */
+        Route::resource('posts', 'PostsController'); 
     });
 
  /* ---------AdminRoutes---End------------ */
@@ -257,6 +270,14 @@ Route::group(['prefix'=>'dashboard','middleware'=>['auth',]],function(){
     Route::post('/examsurvey/store',[
         'uses' => 'ExamSurveysController@store',
         'as' => 'examsurvey.store'
+    ]);
+    Route::get('/examsurvey/show/{id}',[
+        'uses' => 'ExamSurveysController@show',
+        'as' => 'examsurvey.show'
+    ]);
+    Route::get('/examsurvey/delete/{id}',[
+        'uses' => 'ExamSurveysController@destroy',
+        'as' => 'examsurvey.delete'
     ]);
     /* ---------Exams-Route End----------- */
     Route::resource('channels', 'ChannelsController');

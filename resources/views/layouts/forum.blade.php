@@ -265,6 +265,7 @@ desired effect
         <li class="active"><a href="{{route('subscriber-home')}}"><i class="fas fa-home"></i> <span>Go to Home</span></a></li>
         @endif       
         <li><a href="{{route('discussions.create')}}"><i class="fa fa-edit"></i> <span>Create new discussion</span></a></li>
+        <li><a href="{{route('discussions.index')}}"><i class="fas fa-list"></i><span>All Discussions</span></a></li>
         <li class="treeview">
           <a href="#"><i class="fa fa-link"></i> <span>Channels</span>
             <span class="pull-right-container">
